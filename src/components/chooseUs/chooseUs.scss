@@ -1,0 +1,57 @@
+.chooseUs {
+    background-color: #f5f5f5;
+    padding: 80px 0;
+
+    &__title {
+        text-align: center;
+        color: #333333;
+        font-size: 35px;
+        font-weight: 600;
+        margin-bottom: 60px;
+
+        &:after {
+            display: block;
+            content: "Our Benefit";
+            color: #666666;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 25px;
+        }
+    }
+
+    &__image {
+        width: 540px;
+        height: 330px;
+        border-radius: 4px;
+        background-color: #ebebeb;
+    }
+
+    &__subtitle {
+        color: #333333;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 35px;
+        margin-bottom: 10px;
+    }
+
+    &__text {
+        color: #999999;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__item-image {
+        margin-right: 40px;
+    }
+
+    &__item-description {
+        max-width: 454px;
+    }
+}

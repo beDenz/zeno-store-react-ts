@@ -1,0 +1,83 @@
+.footer {
+    padding-top: 80px;
+    display: grid;
+    grid-row-gap: 60px;
+
+    grid-template-areas:
+        "contact company links newslatter"
+        "copyright . . payment-logo";
+
+    .contact {
+        grid-area: contact;
+        border-bottom: 1px soid #e6e6e6;
+    }
+
+    .company {
+        grid-area: company;
+        border-bottom: 1px soid #e6e6e6;
+    }
+
+    .links {
+        grid-area: links;
+        border-bottom: 1px soid #e6e6e6;
+    }
+
+    .newslatter {
+        grid-area: newslatter;
+        border-bottom: 5px soid #e6e6e6;
+
+        &__form {
+            width: 300px;
+            height: 48px;
+            border-radius: 24px;
+            border: 1px solid #e6e6e6;
+            background-color: #ffffff;
+            padding-left: 27px;
+        }
+
+        &__input {
+            border: none;
+            height: 35px;
+            color: #999999;
+        }
+
+        &__btn {
+            cursor: pointer;
+            font-family: "Elegant Icon";
+            width: 48px;
+            height: 48px;
+            border-radius: 24px;
+            background-color: #ff6363;
+            border: none;
+            color: #fff;
+        }
+    }
+
+    .copyright {
+        grid-area: copyright;
+    }
+
+    .payment-logo {
+        grid-area: payment-logo;
+
+        img {
+            &:not(:last-child) {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    span {
+        display: block;
+        color: #666666;
+        font-size: 14px;
+        line-height: 35px;
+    }
+
+    &__title {
+        color: #333333;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 26px;
+    }
+}

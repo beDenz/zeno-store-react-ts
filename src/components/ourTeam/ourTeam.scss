@@ -1,0 +1,60 @@
+.ourDesignTeam {
+    padding: 80px 0;
+
+    &__title {
+        color: #333333;
+        font-size: 35px;
+        font-weight: 600;
+        line-height: 45px;
+        margin-bottom: 15px;
+    }
+
+    &__description {
+        width: 507px;
+        color: #666666;
+        font-size: 15px;
+        line-height: 25px;
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    &__item-description {
+        color: #fefefe;
+        line-height: 45px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ff6363;
+        padding-left: 13px;
+        transform: translateY(60px);
+        transition: all 500ms;
+    }
+
+    &__name {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &__skill {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    &__items {
+        width: 100%;
+    }
+
+    &__item {
+        cursor: pointer;
+        position: relative;
+        width: 370px;
+        height: 430px;
+        background-color: #e6e6e6;
+        overflow: hidden;
+
+        &:hover .ourDesignTeam__item-description {
+            transform: translateY(0);
+        }
+    }
+}

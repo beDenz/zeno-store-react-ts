@@ -1,0 +1,14 @@
+.breadcrumb {
+    font-size: 16px;
+    line-height: 72px;
+    text-align: center;
+    margin-bottom: 80px;
+
+    &__home {
+        color: #333333;
+    }
+
+    &__thisPage {
+        color: #999999;
+    }
+}
