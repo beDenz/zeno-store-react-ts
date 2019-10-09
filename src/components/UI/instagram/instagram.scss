@@ -1,0 +1,53 @@
+.instagram {
+    text-align: center;
+
+    &__title {
+        color: #333333;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 45px;
+    }
+
+    &__nickname {
+        color: #ff6363;
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    &__images {}
+
+    &__image {
+        cursor: pointer;
+        width: 293px;
+        height: 293px;
+        position: relative;
+
+        &:after {
+            display: none;
+            position: absolute;
+            content: "\e09a";
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(255, 99, 99, 0.7);
+            font-family: "Elegant Icon";
+            color: #fff;
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &:hover:after {
+            display: flex;
+        }
+
+        &:nth-child(1n) {
+            background-color: #e5e5e5;
+        }
+
+        &:nth-child(2n) {
+            background-color: #e1e1e1;
+        }
+    }
+}
