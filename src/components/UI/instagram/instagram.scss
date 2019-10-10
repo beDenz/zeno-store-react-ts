@@ -1,5 +1,6 @@
 .instagram {
     text-align: center;
+    height: 293px;
 
     &__title {
         color: #333333;
@@ -14,12 +15,14 @@
         line-height: 26px;
     }
 
-    &__images {}
+    &__images {
+        font-size: 1px;
+    }
 
     &__image {
         cursor: pointer;
         width: 293px;
-        height: 293px;
+
         position: relative;
 
         &:after {
@@ -49,5 +52,9 @@
         &:nth-child(2n) {
             background-color: #e1e1e1;
         }
+    }
+
+    img {
+        max-width: 100%;
     }
 }

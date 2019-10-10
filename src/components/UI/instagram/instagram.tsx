@@ -8,22 +8,22 @@ const Instagram: React.FC = (): ReactElement => {
       <p className="instagram__nickname">@Zano.Furniture</p>
       <div className="instagram__images display-flex ">
         <div className="instagram__image">
-          <img src="" alt="" />
+          <img src="image/instagram/1.jpg" alt="" />
         </div>
         <div className="instagram__image">
-          <img src="" alt="" />
+          <img src="image/instagram/2.jpg" alt="" />
         </div>
         <div className="instagram__image">
-          <img src="" alt="" />
+          <img src="image/instagram/3.jpg" alt="" />
         </div>
         <div className="instagram__image">
-          <img src="" alt="" />
+          <img src="image/instagram/4.jpg" alt="" />
         </div>
         <div className="instagram__image">
-          <img src="" alt="" />
+          <img src="image/instagram/5.jpg" alt="" />
         </div>
         <div className="instagram__image">
-          <img src="" alt="" />
+          <img src="image/instagram/6.jpg" alt="" />
         </div>
       </div>
     </section>

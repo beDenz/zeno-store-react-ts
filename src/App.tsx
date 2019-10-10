@@ -1,9 +1,18 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  RouteComponentProps
+} from "react-router-dom";
 import "./App.scss";
 import Header from "./components/subComponents/header/header";
 import Footer from "./components/subComponents/footer/footer";
 import Home from "./components/home";
+import Blog from "./components/blog";
+import Contact from "./components/contact";
+import Page404 from "./components/page404/page404";
 
 const App: React.FC = () => {
   return (
@@ -11,7 +20,10 @@ const App: React.FC = () => {
       <Fragment>
         <Header />
         <Switch>
-          <Home />
+          <Route exact path="/" component={Home} />
+          <Route path="/:id" component={Blog} />
+          <Route path="/:id" component={Contact} />
+          <Route path="*" component={Page404} />
         </Switch>
         <Footer />
       </Fragment>

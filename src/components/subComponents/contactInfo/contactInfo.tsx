@@ -1,12 +1,12 @@
 import React, { ReactElement } from "react";
-import "./contactinfo.scss";
+import "./contactInfo.scss";
 
 const ContactInfo: React.FC = (): ReactElement => {
   return (
     <section className="contact-info container-small display-flex margin-center flex-justify-space-around">
       <div className="contact-info__item">
         <span className="contact-info__icon">
-          <img src="img/Icon_phone.png" alt="" />
+          <img src="image/Icon_phone.png" alt="" />
         </span>
         <h3 className="contact-info__title">Phone</h3>
         <span className="contact-info__text">+01-3-8888-6868</span>

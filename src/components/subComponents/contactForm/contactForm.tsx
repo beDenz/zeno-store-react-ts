@@ -4,7 +4,9 @@ import "./contactForm.scss";
 const ContactForm: React.FC = (): ReactElement => {
   return (
     <section className="contact-form container-small margin-center">
-      <h2 className="page-title margin-bottom-50">Leave Message</h2>
+      <h2 className="page-title margin-bottom-50 margin-center">
+        Leave Message
+      </h2>
       <form className="display-flex flex-space-between flex-wrap" action="">
         <input
           className="contact-form__input text-style"

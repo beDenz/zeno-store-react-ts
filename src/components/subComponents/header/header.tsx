@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import "./header.scss";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = (): ReactElement => {
   return (
@@ -14,12 +15,20 @@ const Header: React.FC = (): ReactElement => {
           </div>
 
           <ul className="menu display-flex">
-            <li className="menu__item">Home</li>
-            <li className="menu__item">pages</li>
+            <li className="menu__item">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="menu__item">
+              <Link to="/pages">pages</Link>
+            </li>
             <li className="menu__item">portfolio</li>
             <li className="menu__item">shop</li>
-            <li className="menu__item">blog</li>
-            <li className="menu__item">contact</li>
+            <li className="menu__item">
+              <Link to="/blog">blog</Link>
+            </li>
+            <li className="menu__item">
+              <Link to="/contact">contact</Link>
+            </li>
           </ul>
         </div>
         <div>
