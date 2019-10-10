@@ -5,7 +5,7 @@ interface PropsConfig {
   title?: string | undefined;
 }
 
-const Pagetitle: React.FC<PropsConfig> = props => {
+const Pagetitle: React.FC<PropsConfig> = (props): ReactElement => {
   return (
     <h1 className="page-title margin-center">
       {props.title !== undefined

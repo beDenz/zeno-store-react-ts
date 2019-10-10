@@ -5,10 +5,14 @@ import ContactForm from "./subComponents/contactForm/contactForm";
 import ContactInfo from "./subComponents/contactInfo/contactInfo";
 import Googlemap from "./UI/googlemap/googlemap";
 
-const Contact: React.FC = (): ReactElement => {
+interface TitleConfig {
+  title?: string;
+}
+
+const Contact: React.FC<TitleConfig> = (props): ReactElement => {
   return (
     <Fragment>
-      <Pagetitle />
+      <Pagetitle title={props.title} />
       <Breadcrumb />
       <ContactInfo />
       <Googlemap />

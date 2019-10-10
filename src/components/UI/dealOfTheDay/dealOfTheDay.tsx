@@ -4,8 +4,12 @@ import "./dealOfTheDay.scss";
 const DealOfTheDay: React.FC = (): ReactElement => {
   return (
     <section className="dealOfTheDay display-flex container margin-center">
-      <div className="dealOfTheDay__image1"></div>
-      <div className="dealOfTheDay__image2"></div>
+      <div className="dealOfTheDay__image1">
+        <img src="/image/dealOfTheDay/deal_1.jpg" alt="" />
+      </div>
+      <div className="dealOfTheDay__image2">
+        <img src="/image/dealOfTheDay/deal_2.jpg" alt="" />
+      </div>
       <div className="dealOfTheDay__inner">
         <div className="dealOfTheDay__deal display-flex flex-justify-content-center align-center flex-collum">
           <span className="dealOfTheDay__hashtag">#Manor.Furniture</span>

@@ -21,8 +21,10 @@ const App: React.FC = () => {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/:id" component={Blog} />
-          <Route path="/:id" component={Contact} />
+          <Route path="/blog" component={() => <Blog title="blog" />} />
+          <Route path="/contact">
+            <Contact title="contact" />
+          </Route>
           <Route path="*" component={Page404} />
         </Switch>
         <Footer />

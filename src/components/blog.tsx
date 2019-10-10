@@ -1,9 +1,12 @@
 import React, { ReactElement, Fragment } from "react";
 import Breadcrumb from "./UI/breadcrumb/breadcrumb";
 import Pagetitle from "./UI/pageTitle/pagetitle";
-import { useParams } from "react-router-dom";
 
-const Blog: React.FC = (): ReactElement => {
+interface TitleConfig {
+  title?: string;
+}
+
+const Blog: React.FC<TitleConfig> = (props): ReactElement => {
   interface blogPostConfig {
     authorName: string;
     path: string;
@@ -77,16 +80,10 @@ const Blog: React.FC = (): ReactElement => {
       text: "blog text"
     }
   ];
-  const { id } = useParams();
 
-  let xxx: string = "first";
-
-  console.log(xxx.charAt(0).toUpperCase() + xxx.substring(1));
-
-  console.log(id);
   return (
     <Fragment>
-      <Pagetitle title={id} />
+      <Pagetitle title={props.title} />
       <Breadcrumb />
       <section className="blog container-small margin-center display-flex flex-collum align-center">
         <div className="blog__items display-flex flex-space-between flex-wrap ">
