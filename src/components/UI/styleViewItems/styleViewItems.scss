@@ -1,0 +1,16 @@
+.style-view {
+    &__icon {
+        cursor: pointer;
+        color: #999999;
+        font-size: 24px;
+        font-weight: 400;
+
+        &:not(:last-child) {
+            margin-right: 16px;
+        }
+
+        &:hover {
+            color: #ff6363;
+        }
+    }
+}

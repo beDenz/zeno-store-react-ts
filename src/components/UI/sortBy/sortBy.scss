@@ -1,0 +1,41 @@
+.sortBy {
+    position: relative;
+    display: inline-block;
+
+
+    &__title {
+        color: #999999;
+        font-size: 16px;
+        margin-right: 20px;
+
+    }
+
+    &__select {
+        border: none;
+        width: 100px;
+        background-color: transparent;
+        padding-left: 10px;
+
+        option {
+            border: none;
+        }
+
+        &::-ms-expand {
+            color: transparent;
+        }
+
+        appearance: none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+    }
+
+    &:after {
+        position: absolute;
+        content: "\33";
+        font-family: "Elegant Icon";
+        font-size: 20px;
+        right: 5px;
+        top: 3px;
+        z-index: -1;
+    }
+}

@@ -13,6 +13,8 @@ import Home from "./components/home";
 import Blog from "./components/blog";
 import Contact from "./components/contact";
 import Page404 from "./components/page404/page404";
+import Faqs from "./components/faqs/faqs";
+import Shop from "./components/shop";
 
 const App: React.FC = () => {
   return (
@@ -22,6 +24,10 @@ const App: React.FC = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/blog" component={() => <Blog title="blog" />} />
+          <Route path="/shop">
+            <Shop title="shop" />
+          </Route>
+          <Route path="/faqs" component={Faqs} />
           <Route path="/contact">
             <Contact title="contact" />
           </Route>

@@ -19,10 +19,11 @@ const Header: React.FC = (): ReactElement => {
               <Link to="/">Home</Link>
             </li>
             <li className="menu__item">
-              <Link to="/pages">pages</Link>
+              <Link to="/shop">Shop</Link>
             </li>
-            <li className="menu__item">portfolio</li>
-            <li className="menu__item">shop</li>
+            <li className="menu__item">
+              <Link to="/faqs">faqs</Link>
+            </li>
             <li className="menu__item">
               <Link to="/blog">blog</Link>
             </li>
