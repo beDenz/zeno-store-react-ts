@@ -73,6 +73,10 @@
         margin-bottom: 38px;
     }
 
+    &:last-child {
+        justify-self: flex-start;
+    }
+
     &:hover &__icons {
         display: flex;
     }

@@ -1,6 +1,16 @@
 import React, { ReactElement } from "react";
 import "./tagsList.scss";
 
+const categoriesStore: string[] = [
+  "All",
+  "Lighting",
+  "Decor",
+  "Furniture",
+  "Chair",
+  "Textiles",
+  "Trending"
+];
+
 const TagsList: React.FC = (): ReactElement => {
   return (
     <div className="tags-list">
