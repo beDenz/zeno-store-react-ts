@@ -1,29 +1,112 @@
 import React, { ReactElement } from "react";
-import { ProductItemsConfig, productsList } from "../../../api/api";
+import { ProductItemsConfig } from "../../../api/api";
 import "./productItem.scss";
+import classnames from "classnames";
 
 interface ProductItemConfig {
   productList: ProductItemsConfig;
+  styleViewState: string | null;
 }
 
 const ProductItem: React.FC<ProductItemConfig> = props => {
   return (
-    <div className="productItem">
-      <div className="productItem__image">
+    <div
+      className={classnames(
+        { productItem: props.styleViewState === "grid" },
+        { productItemList: props.styleViewState === "list" }
+      )}
+    >
+      <div
+        className={classnames(
+          { productItem__image: props.styleViewState === "grid" },
+          { productItemList__image: props.styleViewState === "list" }
+        )}
+      >
         <img
           src={`image/products/${props.productList.category}/${props.productList.id}_1.jpg`}
           alt=""
         />
-        <div className="productItem__icons">
-          <div className="productItem__icon">&#xe030;</div>
-          <div className="productItem__icon">&#xe013;</div>
+        <div
+          className={classnames(
+            { productItem__icons: props.styleViewState === "grid" },
+            { productItemList__icons: props.styleViewState === "list" }
+          )}
+        >
+          <div
+            className={classnames(
+              { productItem__icon: props.styleViewState === "grid" },
+              { productItemList__icon: props.styleViewState === "list" }
+            )}
+          >
+            &#xe030;
+          </div>
+          <div
+            className={classnames(
+              { productItem__icon: props.styleViewState === "grid" },
+              { productItemList__icon: props.styleViewState === "list" }
+            )}
+          >
+            &#xe013;
+          </div>
         </div>
       </div>
-      <div className="productItem__description">
-        <h5 className="productItem__title">{props.productList.title}</h5>
-        <span className="productItem__price">
-          {props.productList.price + "$"}
+      <div
+        className={classnames(
+          { productItem__description: props.styleViewState === "grid" },
+          { productItemList__description: props.styleViewState === "list" }
+        )}
+      >
+        <h5
+          className={classnames(
+            { productItem__title: props.styleViewState === "grid" },
+            { productItemList__title: props.styleViewState === "list" }
+          )}
+        >
+          {props.productList.title}
+        </h5>
+
+        <span
+          className={classnames(
+            { productItem__price: props.styleViewState === "grid" },
+            { productItemList__price: props.styleViewState === "list" }
+          )}
+        >
+          {"$" + props.productList.price}
         </span>
+        <p
+          className={classnames(
+            { displayNone: props.styleViewState === "grid" },
+            {
+              "productItemList__preview-description":
+                props.styleViewState === "list"
+            }
+          )}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+          pellem tesque magna laoret felis accumsan finibus.
+        </p>
+        <div
+          className={classnames(
+            { displayNone: props.styleViewState === "grid" },
+            {
+              "productItemList__button display-flex flex-justify-content-center align-center":
+                props.styleViewState === "list"
+            }
+          )}
+        >
+          Add To Cart
+        </div>
+        <div
+          className={classnames(
+            { displayNone: props.styleViewState === "grid" },
+            {
+              "productItemList__button elegant-icon display-flex flex-justify-content-center align-center":
+                props.styleViewState === "list"
+            }
+          )}
+        >
+          &#xe030;
+        </div>
       </div>
     </div>
   );

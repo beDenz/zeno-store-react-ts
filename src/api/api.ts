@@ -31,7 +31,7 @@ export const productsList: ProductItemsConfig[] = [
     waight: 40, // вес
     available: 5, // доступное количество
     demention: "24L x 18W x 72.5H in.", // размеры
-    score: 4.7, // рейтинг
+    score: 4, // рейтинг
     review: [
       {
         name: "name",
@@ -306,7 +306,7 @@ export const productsList: ProductItemsConfig[] = [
   },
   {
     id: "HMS769", //
-    category: "lighting",
+    category: "outdoor",
     title: "Home", // название
     sku: "HMS769", // какой то id
     price: 823.49, // новая цена
@@ -328,7 +328,7 @@ export const productsList: ProductItemsConfig[] = [
   },
   {
     id: "HMS769", //
-    category: "lighting",
+    category: "outdoor",
     title: "Belham", // название
     sku: "HMS769", // какой то id
     price: 890.8, // новая цена
@@ -350,7 +350,7 @@ export const productsList: ProductItemsConfig[] = [
   },
   {
     id: "HONG064", //
-    category: "lighting",
+    category: "outdoor",
     title: "Coral Coast", // название
     sku: "HONG064", // какой то id
     price: 251.6, // новая цена
@@ -372,7 +372,7 @@ export const productsList: ProductItemsConfig[] = [
   },
   {
     id: "PW303", //
-    category: "lighting",
+    category: "outdoor",
     title: "Coral Coast", // название
     sku: "PW303", // какой то id
     price: 422.99, // новая цена
@@ -394,7 +394,7 @@ export const productsList: ProductItemsConfig[] = [
   },
   {
     id: "HWD039", //
-    category: "lighting",
+    category: "outdoor",
     title: "Coral Coast", // название
     sku: "HWD039", // какой то id
     price: 440.99, // новая цена

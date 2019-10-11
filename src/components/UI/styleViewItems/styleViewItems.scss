@@ -9,8 +9,14 @@
             margin-right: 16px;
         }
 
-        &:hover {
-            color: #ff6363;
-        }
+        //&:hover {
+        //    color: #ff6363;
+        // }
+
     }
+
+    .active {
+        color: #ff6363;
+    }
+
 }

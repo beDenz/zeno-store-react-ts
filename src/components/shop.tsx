@@ -8,31 +8,56 @@ import TagsList from "./UI/tagsList/tagsList";
 import { productsList } from "../api/api";
 import ProductItem from "./UI/productItem/productItem";
 import PriceFilter from "./UI/priceFilter/priceFilter";
+import classnames from "classnames";
 
 interface TitleConfig {
   title?: string;
 }
 
+interface ShopFilterConfig {
+  minPrice: number;
+  maxPrice: number;
+  showCategory: string;
+  filterResult: number;
+}
+
 const Shop: React.FC<TitleConfig> = (props): ReactElement => {
-  // const [categoryFilter, setCategoryFilter] = useState({});
-  const [priceFilter, setPriceFilter] = useState({
+  const [shopFilter, SetShopFilter] = useState<ShopFilterConfig>({
     minPrice: 1,
-    maxPrice: 10000
+    maxPrice: 10000,
+    showCategory: "all",
+    filterResult: 0
   });
+  const [styleViewState, setStyleViewState] = useState<string | null>("list");
+
+  const [tempState, setTempState] = useState(0);
 
   const onChangePrice = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (!e.target.value.match(/[^0-9]/gi)) {
       e.target.id === "minprice"
-        ? setPriceFilter({ ...priceFilter, minPrice: +e.target.value })
-        : setPriceFilter({ ...priceFilter, maxPrice: +e.target.value });
-    } else console.log("no");
+        ? SetShopFilter({ ...shopFilter, minPrice: +e.target.value })
+        : SetShopFilter({ ...shopFilter, maxPrice: +e.target.value });
+    }
+  };
+  const setShowCategory = (e: React.MouseEvent<HTMLElement>): void => {
+    const target = e.target as HTMLElement;
+    SetShopFilter({
+      ...shopFilter,
+      showCategory: target.innerHTML.toLowerCase()
+    });
+  };
+
+  const setStyleView = (e: React.MouseEvent): void => {
+    const target = e.target as HTMLElement;
+    if (target.getAttribute("type") !== styleViewState)
+      setStyleViewState(target.getAttribute("type"));
   };
 
   return (
     <section className="shop container-small display-flex margin-center">
       <div className="filters">
-        <TagsList />
-        <PriceFilter priceFilter={priceFilter} onChange={onChangePrice} />
+        <TagsList onClick={setShowCategory} />
+        <PriceFilter priceFilter={shopFilter} onChange={onChangePrice} />
       </div>
       <div className="shop__inner">
         <div className="shop__inner-first-row display-flex flex-space-between ">
@@ -40,19 +65,55 @@ const Shop: React.FC<TitleConfig> = (props): ReactElement => {
             <Pagetitle title={props.title} />
           </div>
           <div className="sort display-flex align-center">
-            <ShopFilterResult />
+            <ShopFilterResult filterResult={shopFilter.filterResult} />
             <SortBy />
-            <StyleViewItems />
+            <StyleViewItems
+              onClick={setStyleView}
+              styleViewState={styleViewState}
+            />
           </div>
         </div>
-        <div className="featured-products__items display-flex flex-space-between flex-wrap">
-          {productsList.map((item, index) => {
-            if (
-              item.price > priceFilter.minPrice &&
-              item.price < priceFilter.maxPrice
+
+        <div
+          className={classnames(
+            "featured-products__items",
+            {
+              "display-flex flex-space-between flex-wrap":
+                styleViewState === "grid"
+            },
+            { "flex-collum": styleViewState === "list" }
+          )}
+        >
+          {productsList
+            .filter(item =>
+              shopFilter.showCategory !== "all"
+                ? shopFilter.showCategory
+                    .toLowerCase()
+                    .charAt(0)
+                    .toUpperCase() +
+                    shopFilter.showCategory.toLowerCase().substring(1) ===
+                  item.category
+                    .toLowerCase()
+                    .charAt(0)
+                    .toUpperCase() +
+                    item.category.toLowerCase().substring(1)
+                : true
             )
-              return <ProductItem key={index} productList={item} />;
-          })}
+            .map((item, index) => {
+              if (
+                item.price > shopFilter.minPrice &&
+                item.price < shopFilter.maxPrice
+              ) {
+                //setTempState(index + 1);
+                return (
+                  <ProductItem
+                    key={index}
+                    productList={item}
+                    styleViewState={styleViewState}
+                  />
+                );
+              }
+            })}
         </div>
       </div>
     </section>
