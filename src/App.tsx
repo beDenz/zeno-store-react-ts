@@ -16,6 +16,8 @@ import Contact from "./components/contact";
 import Page404 from "./components/page404/page404";
 import Faqs from "./components/faqs/faqs";
 import Shop from "./components/shop";
+import ShopingCart from "./components/shopingCart/shopingCart";
+import WishList from "./components/wishList/wishList";
 
 const App: React.FC = () => {
   return (
@@ -32,6 +34,9 @@ const App: React.FC = () => {
           <Route path="/contact">
             <Contact title="contact" />
           </Route>
+          <Route path="/shopingcart" component={() => <ShopingCart />} />
+          <Route path="/wishlist" component={() => <WishList />} />
+
           <Route path="*" component={Page404} />
         </Switch>
         <Footer />

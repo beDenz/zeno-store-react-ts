@@ -42,11 +42,17 @@ const Header: React.FC = (): ReactElement => {
               id=""
             />
             <span className="nav__icon elegant-icon">&#x55;</span>
-            <span className="nav__icon elegant-icon">&#xe030;</span>
-            <span className="nav__icon elegant-icon">&#xe013;</span>
+            <Link to="/wishlist">
+              <span className="nav__icon elegant-icon">&#xe030;</span>
+            </Link>
+            <Link to="/shopingcart">
+              <span className="nav__icon elegant-icon">&#xe013;</span>
+            </Link>
             <div className="cart">
-              <span className="cart__title">Cart: </span>
-              <span className="cart__price">$250</span>
+              <Link to="/shopingcart">
+                <span className="cart__title">Cart: </span>
+                <span className="cart__price">$250</span>
+              </Link>
             </div>
           </div>
         </div>

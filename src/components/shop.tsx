@@ -19,6 +19,8 @@ import {
   useRouteMatch
 } from "react-router-dom";
 import ShopingCart from "./shopingCart/shopingCart";
+import WishList from "./wishList/wishList";
+import CheckOut from "./checkOut/checkOut";
 
 interface TitleConfig {
   title?: string;
@@ -132,7 +134,6 @@ const Shop: React.FC<TitleConfig> = (props): ReactElement => {
         </div>
 
         <ProductCard onClick={setMainImageInProductCard} />
-        <ShopingCart />
       </div>
     </section>
   );

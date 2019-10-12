@@ -6,7 +6,7 @@ const ShopingCart: React.FC = (): ReactElement => {
   return (
     <Fragment>
       <Pagetitle />
-      <div className="shopingCart">
+      <div className="shopingCart container-small margin-center display-flex flex-collum">
         <div className="shopingCart__row-titles display-flex flex-space-between row-border">
           <h3 className="shopingCart__title width-50">Products</h3>
           <h3 className="shopingCart__title ">Price</h3>
@@ -86,28 +86,30 @@ const ShopingCart: React.FC = (): ReactElement => {
           <div className="shopingCart__button-confirm">Continue ShopPping</div>
           <div className="shopingCart__button-confirm">Update Cart</div>
         </div>
-      </div>
-      <div className="totalPrice display-flex flex-collum flex-space-between">
-        <h3 className="totalPrice__title">Cart Total</h3>
-        <div className="totalPrice__subtotal display-flex flex-space-between">
-          <div className="totalPrice__subtitle">Subtotal</div>
-          <div className="totalPrice__price">$454.98</div>
-        </div>
-        <div className="totalPrice__button display-flex flex-justify-content-center align-center">
-          PROCEED TO CHECKOUT
-        </div>
-      </div>
+        <div className="display-flex flex-space-between align-flex-end">
+          <div className="discount">
+            <h3 className="discount__title">Discount Codes</h3>
+            <form className="discount__form display-flex align-center">
+              <input
+                className="discount__input"
+                type="text"
+                placeholder="Enter your coupon code"
+              />
+              <button className="discount__button">APPLY COUPON</button>
+            </form>
+          </div>
 
-      <div className="discount">
-        <h3 className="discount__title">Discount Codes</h3>
-        <form className="discount__form">
-          <input
-            className="discount__input"
-            type="text"
-            placeholder="Enter your coupon code"
-          />
-          <button className="discount__button">APPLY COUPON</button>
-        </form>
+          <div className="totalPrice display-flex flex-collum flex-space-between">
+            <h3 className="totalPrice__title">Cart Total</h3>
+            <div className="totalPrice__subtotal display-flex flex-space-between">
+              <div className="totalPrice__subtitle">Subtotal</div>
+              <div className="totalPrice__price">$454.98</div>
+            </div>
+            <div className="totalPrice__button display-flex flex-justify-content-center align-center">
+              PROCEED TO CHECKOUT
+            </div>
+          </div>
+        </div>
       </div>
     </Fragment>
   );
