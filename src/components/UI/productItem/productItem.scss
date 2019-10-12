@@ -183,12 +183,8 @@
         }
     }
 
-    &:not(:nth-last-child(-n+3)) {
+    &:not(:last-child) {
         margin-bottom: 38px;
-    }
-
-    &:last-child {
-        justify-self: flex-start;
     }
 
     &:hover &__icons {

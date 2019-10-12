@@ -1,5 +1,12 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
 import "./App.scss";
 import Header from "./components/subComponents/header/header";
 import Footer from "./components/subComponents/footer/footer";

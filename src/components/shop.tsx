@@ -9,6 +9,16 @@ import { productsList } from "../api/api";
 import ProductItem from "./UI/productItem/productItem";
 import PriceFilter from "./UI/priceFilter/priceFilter";
 import classnames from "classnames";
+import ProductCard from "./productCard/productCard";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
+import ShopingCart from "./shopingCart/shopingCart";
 
 interface TitleConfig {
   title?: string;
@@ -53,8 +63,14 @@ const Shop: React.FC<TitleConfig> = (props): ReactElement => {
       setStyleViewState(target.getAttribute("type"));
   };
 
+  const setMainImageInProductCard = (e: React.MouseEvent): void => {
+    const target = e.target as HTMLElement;
+
+    // TODO: функция смены картинки в карточке продукта
+  };
+
   return (
-    <section className="shop container-small display-flex margin-center">
+    <section className="shop container-1500 display-flex margin-center">
       <div className="filters">
         <TagsList onClick={setShowCategory} />
         <PriceFilter priceFilter={shopFilter} onChange={onChangePrice} />
@@ -73,7 +89,6 @@ const Shop: React.FC<TitleConfig> = (props): ReactElement => {
             />
           </div>
         </div>
-
         <div
           className={classnames(
             "featured-products__items",
@@ -115,6 +130,9 @@ const Shop: React.FC<TitleConfig> = (props): ReactElement => {
               }
             })}
         </div>
+
+        <ProductCard onClick={setMainImageInProductCard} />
+        <ShopingCart />
       </div>
     </section>
   );
