@@ -16,6 +16,7 @@ import {
   Route,
   Link,
   useParams,
+  useLocation,
   useRouteMatch
 } from "react-router-dom";
 import ShopingCart from "./shopingCart/shopingCart";
@@ -24,6 +25,7 @@ import CheckOut from "./checkOut/checkOut";
 
 interface TitleConfig {
   title?: string;
+  match: any;
 }
 
 interface ShopFilterConfig {
@@ -33,14 +35,14 @@ interface ShopFilterConfig {
   filterResult: number;
 }
 
-const Shop: React.FC<TitleConfig> = (props): ReactElement => {
+const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
   const [shopFilter, SetShopFilter] = useState<ShopFilterConfig>({
     minPrice: 1,
     maxPrice: 10000,
     showCategory: "all",
     filterResult: 0
   });
-  const [styleViewState, setStyleViewState] = useState<string | null>("list");
+  const [styleViewState, setStyleViewState] = useState<string | null>("grid");
 
   const [tempState, setTempState] = useState(0);
 
@@ -70,7 +72,7 @@ const Shop: React.FC<TitleConfig> = (props): ReactElement => {
 
     // TODO: функция смены картинки в карточке продукта
   };
-
+  console.log(match);
   return (
     <section className="shop container-1500 display-flex margin-center">
       <div className="filters">
@@ -80,7 +82,7 @@ const Shop: React.FC<TitleConfig> = (props): ReactElement => {
       <div className="shop__inner">
         <div className="shop__inner-first-row display-flex flex-space-between ">
           <div>
-            <Pagetitle title={props.title} />
+            <Pagetitle title={title} />
           </div>
           <div className="sort display-flex align-center">
             <ShopFilterResult filterResult={shopFilter.filterResult} />
@@ -91,50 +93,57 @@ const Shop: React.FC<TitleConfig> = (props): ReactElement => {
             />
           </div>
         </div>
-        <div
-          className={classnames(
-            "featured-products__items",
-            {
-              "display-flex flex-space-between flex-wrap":
-                styleViewState === "grid"
-            },
-            { "flex-collum": styleViewState === "list" }
-          )}
-        >
-          {productsList
-            .filter(item =>
-              shopFilter.showCategory !== "all"
-                ? shopFilter.showCategory
-                    .toLowerCase()
-                    .charAt(0)
-                    .toUpperCase() +
-                    shopFilter.showCategory.toLowerCase().substring(1) ===
-                  item.category
-                    .toLowerCase()
-                    .charAt(0)
-                    .toUpperCase() +
-                    item.category.toLowerCase().substring(1)
-                : true
-            )
-            .map((item, index) => {
-              if (
-                item.price > shopFilter.minPrice &&
-                item.price < shopFilter.maxPrice
-              ) {
-                //setTempState(index + 1);
-                return (
-                  <ProductItem
-                    key={index}
-                    productList={item}
-                    styleViewState={styleViewState}
-                  />
-                );
-              }
-            })}
-        </div>
-
+        {match.params.id === undefined ? (
+          <div
+            className={classnames(
+              "featured-products__items",
+              {
+                "display-flex flex-space-between flex-wrap":
+                  styleViewState === "grid"
+              },
+              { "flex-collum": styleViewState === "list" }
+            )}
+          >
+            {productsList
+              .filter(item =>
+                shopFilter.showCategory !== "all"
+                  ? shopFilter.showCategory
+                      .toLowerCase()
+                      .charAt(0)
+                      .toUpperCase() +
+                      shopFilter.showCategory.toLowerCase().substring(1) ===
+                    item.category
+                      .toLowerCase()
+                      .charAt(0)
+                      .toUpperCase() +
+                      item.category.toLowerCase().substring(1)
+                  : true
+              )
+              .map((item, index) => {
+                if (
+                  item.price > shopFilter.minPrice &&
+                  item.price < shopFilter.maxPrice
+                ) {
+                  //setTempState(index + 1);
+                  return (
+                    <ProductItem
+                      key={index}
+                      productList={item}
+                      styleViewState={styleViewState}
+                    />
+                  );
+                }
+              })}
+          </div>
+        ) : (
+          <ProductCard onClick={setMainImageInProductCard} />
+        )}
         <ProductCard onClick={setMainImageInProductCard} />
       </div>
+
+      <Switch>
+        <Route></Route>
+      </Switch>
     </section>
   );
 };

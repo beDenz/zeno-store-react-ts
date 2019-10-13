@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import { ProductItemsConfig } from "../../../api/api";
 import "./productItem.scss";
 import classnames from "classnames";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 interface ProductItemConfig {
   productList: ProductItemsConfig;
@@ -9,6 +10,9 @@ interface ProductItemConfig {
 }
 
 const ProductItem: React.FC<ProductItemConfig> = props => {
+  // http://localhost:3000/image/products/furniture/DIME008_1.jpg
+  // http://localhost:3000/image/products/furniture/DIME008_1.jpg
+
   return (
     <div
       className={classnames(
@@ -23,7 +27,7 @@ const ProductItem: React.FC<ProductItemConfig> = props => {
         )}
       >
         <img
-          src={`image/products/${props.productList.category}/${props.productList.id}_1.jpg`}
+          src={`/image/products/${props.productList.category}/${props.productList.id}_1.jpg`}
           alt=""
         />
         <div
@@ -62,7 +66,9 @@ const ProductItem: React.FC<ProductItemConfig> = props => {
             { productItemList__title: props.styleViewState === "list" }
           )}
         >
-          {props.productList.title}
+          <Link to={`/shop/${props.productList.id}`}>
+            {props.productList.title}
+          </Link>
         </h5>
 
         <span

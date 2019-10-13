@@ -5,6 +5,7 @@ import {
   Route,
   Link,
   useParams,
+  useLocation,
   useRouteMatch
 } from "react-router-dom";
 import "./App.scss";
@@ -20,18 +21,18 @@ import ShopingCart from "./components/shopingCart/shopingCart";
 import WishList from "./components/wishList/wishList";
 
 const App: React.FC = () => {
+  // <Shop title="shop" /> </Route>}
   return (
     <Router>
       <Fragment>
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/blog" component={() => <Blog title="blog" />} />
-          <Route path="/shop">
-            <Shop title="shop" />
-          </Route>
-          <Route path="/faqs" component={Faqs} />
-          <Route path="/contact">
+          <Route exact path="/blog" component={() => <Blog title="blog" />} />
+          <Route exact path="/shop" component={Shop} />
+          <Route exact path="/shop/:id" component={Shop} />
+          <Route exact path="/faqs" component={Faqs} />
+          <Route exact path="/contact">
             <Contact title="contact" />
           </Route>
           <Route path="/shopingcart" component={() => <ShopingCart />} />
