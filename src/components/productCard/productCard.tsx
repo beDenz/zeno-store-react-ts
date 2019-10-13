@@ -1,43 +1,62 @@
-import React, { ReactElement, Fragment } from "react";
+import React, { ReactElement, Fragment, useState } from "react";
 import "./productCard.scss";
 import Pagetitle from "../UI/pageTitle/pagetitle";
+import { ProductItemsConfig } from "../../api/api";
 
 interface ProductCardConfig {
-  onClick: (e: React.MouseEvent) => void;
+  itemDetail: ProductItemsConfig;
 }
 
 const ProductCard: React.FC<ProductCardConfig> = ({
-  onClick
+  itemDetail
 }): ReactElement => {
+  console.log(itemDetail);
+
+  const [mainImage, setMainImage] = useState<string>(`${itemDetail.id}_1`);
+
   return (
     <Fragment>
       <Pagetitle title="Product Left Sidebar" />
       <div className="productCard display-flex">
-        <div
-          className="productCard__images display-flex flex-wrap"
-          onClick={onClick}
-        >
+        <div className="productCard__images display-flex flex-wrap">
           <div className="productCard__image image-main">
-            <img src="image/products/furniture/DIME008_1.jpg" alt="" />
+            <img
+              src={`image/products/${itemDetail.category}/${mainImage}.jpg`}
+              alt=""
+            />
           </div>
-          <div className="productCard__image image-small">
-            <img src="image/products/furniture/DIME008_1.jpg" alt="" />
+          <div
+            className="productCard__image image-small"
+            onClick={() => setMainImage(`${itemDetail.id}_1`)}
+          >
+            <img
+              src={`image/products/${itemDetail.category}/${itemDetail.id}_1.jpg`}
+              alt=""
+            />
           </div>
-          <div className="productCard__image image-small">
-            <img src="image/products/furniture/DIME008_2.jpg" alt="" />
+          <div
+            className="productCard__image image-small"
+            onClick={() => setMainImage(`${itemDetail.id}_2`)}
+          >
+            <img
+              src={`image/products/${itemDetail.category}/${itemDetail.id}_2.jpg`}
+              alt=""
+            />
           </div>
-          <div className="productCard__image image-small">
-            <img src="image/products/furniture/DIME008_3.jpg" alt="" />
+          <div
+            className="productCard__image image-small"
+            onClick={() => setMainImage(`${itemDetail.id}_3`)}
+          >
+            <img
+              src={`image/products/${itemDetail.category}/${itemDetail.id}_3.jpg`}
+              alt=""
+            />
           </div>
         </div>
         <div className="productCard__description">
-          <h3 className="productCard__title">Atalaia Pouf</h3>
-          <p className="productCard__price">$50.00</p>
-          <p className="productCard__text">
-            Talk about fine lines and great curves. Light blue polyester fabric,
-            oak feet. That’s the beauty - made to suit your appreciation for
-            clean.
-          </p>
+          <h3 className="productCard__title">{itemDetail.title}</h3>
+          <p className="productCard__price">${itemDetail.price}</p>
+          <p className="productCard__text">{itemDetail.description}</p>
           <div className="display-flex">
             <div className="count display-flex flex-space-between align-center">
               <div className="count__operator display-flex align-center flex-justify-content-center">

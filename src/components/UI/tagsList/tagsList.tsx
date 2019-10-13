@@ -1,46 +1,31 @@
 import React, { ReactElement } from "react";
 import "./tagsList.scss";
+import { Link } from "react-router-dom";
 
-const categoriesStore: string[] = [
+interface TagsListConfig {
+  onClick: (e: React.MouseEvent<HTMLElement>) => void;
+}
+
+const categoriesList: string[] = [
   "All",
   "Lighting",
   "Decor",
   "Furniture",
   "Chair",
-  "Textiles",
+  "Outdoor",
   "Trending"
 ];
-
-interface TagsListConfig {
-  onClick: (e: React.MouseEvent<HTMLElement>) => void;
-}
 
 const TagsList: React.FC<TagsListConfig> = ({ onClick }): ReactElement => {
   return (
     <div className="tags-list">
       <h3 className="tags-list__title">Categories</h3>
       <ul>
-        <li className="tags-list__item" onClick={onClick}>
-          All
-        </li>
-        <li className="tags-list__item" onClick={onClick}>
-          Lighting
-        </li>
-        <li className="tags-list__item" onClick={onClick}>
-          Decor
-        </li>
-        <li className="tags-list__item" onClick={onClick}>
-          Furniture
-        </li>
-        <li className="tags-list__item" onClick={onClick}>
-          Chair
-        </li>
-        <li className="tags-list__item" onClick={onClick}>
-          Outdoor
-        </li>
-        <li className="tags-list__item" onClick={onClick}>
-          Trending
-        </li>
+        {categoriesList.map((item, index) => (
+          <li key={index} className="tags-list__item" onClick={onClick}>
+            <Link to="/shop">{item}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

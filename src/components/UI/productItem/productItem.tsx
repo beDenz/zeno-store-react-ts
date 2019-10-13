@@ -1,54 +1,68 @@
-import React, { ReactElement } from "react";
+import React, { useContext } from "react";
 import { ProductItemsConfig } from "../../../api/api";
 import "./productItem.scss";
 import classnames from "classnames";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { ShoppingCartContext } from "../../../service/cart";
 
 interface ProductItemConfig {
   productList: ProductItemsConfig;
   styleViewState: string | null;
 }
 
-const ProductItem: React.FC<ProductItemConfig> = props => {
-  // http://localhost:3000/image/products/furniture/DIME008_1.jpg
-  // http://localhost:3000/image/products/furniture/DIME008_1.jpg
-
+const ProductItem: React.FC<ProductItemConfig> = ({
+  styleViewState,
+  productList
+}) => {
+  const shoppingCartState = useContext(ShoppingCartContext);
   return (
     <div
       className={classnames(
-        { productItem: props.styleViewState === "grid" },
-        { productItemList: props.styleViewState === "list" }
+        { productItem: styleViewState === "grid" },
+        { productItemList: styleViewState === "list" }
       )}
     >
       <div
         className={classnames(
-          { productItem__image: props.styleViewState === "grid" },
-          { productItemList__image: props.styleViewState === "list" }
+          { productItem__image: styleViewState === "grid" },
+          { productItemList__image: styleViewState === "list" }
         )}
       >
         <img
-          src={`/image/products/${props.productList.category}/${props.productList.id}_1.jpg`}
+          src={`/image/products/${productList.category}/${productList.id}_1.jpg`}
           alt=""
         />
         <div
           className={classnames(
-            { productItem__icons: props.styleViewState === "grid" },
-            { productItemList__icons: props.styleViewState === "list" }
+            { productItem__icons: styleViewState === "grid" },
+            { productItemList__icons: styleViewState === "list" }
           )}
         >
           <div
             className={classnames(
-              { productItem__icon: props.styleViewState === "grid" },
-              { productItemList__icon: props.styleViewState === "list" }
+              { productItem__icon: styleViewState === "grid" },
+              { productItemList__icon: styleViewState === "list" }
             )}
+            onClick={() =>
+              shoppingCartState.dispatch({
+                type: "add",
+                payload: { id: productList.id, price: productList.price }
+              })
+            }
           >
             &#xe030;
           </div>
           <div
             className={classnames(
-              { productItem__icon: props.styleViewState === "grid" },
-              { productItemList__icon: props.styleViewState === "list" }
+              { productItem__icon: styleViewState === "grid" },
+              { productItemList__icon: styleViewState === "list" }
             )}
+            onClick={() =>
+              shoppingCartState.dispatch({
+                type: "add",
+                payload: { id: productList.id, price: productList.price }
+              })
+            }
           >
             &#xe013;
           </div>
@@ -56,35 +70,32 @@ const ProductItem: React.FC<ProductItemConfig> = props => {
       </div>
       <div
         className={classnames(
-          { productItem__description: props.styleViewState === "grid" },
-          { productItemList__description: props.styleViewState === "list" }
+          { productItem__description: styleViewState === "grid" },
+          { productItemList__description: styleViewState === "list" }
         )}
       >
         <h5
           className={classnames(
-            { productItem__title: props.styleViewState === "grid" },
-            { productItemList__title: props.styleViewState === "list" }
+            { productItem__title: styleViewState === "grid" },
+            { productItemList__title: styleViewState === "list" }
           )}
         >
-          <Link to={`/shop/${props.productList.id}`}>
-            {props.productList.title}
-          </Link>
+          <Link to={`/shop/${productList.id}`}>{productList.title}</Link>
         </h5>
 
         <span
           className={classnames(
-            { productItem__price: props.styleViewState === "grid" },
-            { productItemList__price: props.styleViewState === "list" }
+            { productItem__price: styleViewState === "grid" },
+            { productItemList__price: styleViewState === "list" }
           )}
         >
-          {"$" + props.productList.price}
+          {"$" + productList.price}
         </span>
         <p
           className={classnames(
-            { displayNone: props.styleViewState === "grid" },
+            { displayNone: styleViewState === "grid" },
             {
-              "productItemList__preview-description":
-                props.styleViewState === "list"
+              "productItemList__preview-description": styleViewState === "list"
             }
           )}
         >
@@ -93,10 +104,10 @@ const ProductItem: React.FC<ProductItemConfig> = props => {
         </p>
         <div
           className={classnames(
-            { displayNone: props.styleViewState === "grid" },
+            { displayNone: styleViewState === "grid" },
             {
               "productItemList__button display-flex flex-justify-content-center align-center":
-                props.styleViewState === "list"
+                styleViewState === "list"
             }
           )}
         >
@@ -104,10 +115,10 @@ const ProductItem: React.FC<ProductItemConfig> = props => {
         </div>
         <div
           className={classnames(
-            { displayNone: props.styleViewState === "grid" },
+            { displayNone: styleViewState === "grid" },
             {
               "productItemList__button elegant-icon display-flex flex-justify-content-center align-center":
-                props.styleViewState === "list"
+                styleViewState === "list"
             }
           )}
         >

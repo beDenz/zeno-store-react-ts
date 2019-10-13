@@ -1,15 +1,15 @@
-import React, { ReactElement, useState } from "react";
-import Breadcrumb from "./UI/breadcrumb/breadcrumb";
+import React, { ReactElement, useState, useContext, useEffect } from "react";
 import Pagetitle from "./UI/pageTitle/pagetitle";
 import ShopFilterResult from "./UI/shopFilterResult/shopFilterResult";
 import SortBy from "./UI/sortBy/sortBy";
 import StyleViewItems from "./UI/styleViewItems/styleViewItems";
 import TagsList from "./UI/tagsList/tagsList";
-import { productsList } from "../api/api";
+import { productsList, ProductItemsConfig } from "../api/api";
 import ProductItem from "./UI/productItem/productItem";
 import PriceFilter from "./UI/priceFilter/priceFilter";
 import classnames from "classnames";
 import ProductCard from "./productCard/productCard";
+import { ShoppingCartContext } from "../service/cart";
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,9 +19,6 @@ import {
   useLocation,
   useRouteMatch
 } from "react-router-dom";
-import ShopingCart from "./shopingCart/shopingCart";
-import WishList from "./wishList/wishList";
-import CheckOut from "./checkOut/checkOut";
 
 interface TitleConfig {
   title?: string;
@@ -44,8 +41,6 @@ const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
   });
   const [styleViewState, setStyleViewState] = useState<string | null>("grid");
 
-  const [tempState, setTempState] = useState(0);
-
   const onChangePrice = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (!e.target.value.match(/[^0-9]/gi)) {
       e.target.id === "minprice"
@@ -67,12 +62,15 @@ const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
       setStyleViewState(target.getAttribute("type"));
   };
 
-  const setMainImageInProductCard = (e: React.MouseEvent): void => {
-    const target = e.target as HTMLElement;
+  const getProductDetail = (
+    array: ProductItemsConfig[],
+    id: string
+  ): ProductItemsConfig =>
+    array.filter((item: ProductItemsConfig) => item.id === id)[0];
 
-    // TODO: функция смены картинки в карточке продукта
-  };
-  console.log(match);
+  const shoppingCartState = useContext(ShoppingCartContext);
+
+  console.log(shoppingCartState.state);
   return (
     <section className="shop container-1500 display-flex margin-center">
       <div className="filters">
@@ -81,17 +79,17 @@ const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
       </div>
       <div className="shop__inner">
         <div className="shop__inner-first-row display-flex flex-space-between ">
-          <div>
-            <Pagetitle title={title} />
-          </div>
-          <div className="sort display-flex align-center">
-            <ShopFilterResult filterResult={shopFilter.filterResult} />
-            <SortBy />
-            <StyleViewItems
-              onClick={setStyleView}
-              styleViewState={styleViewState}
-            />
-          </div>
+          <Pagetitle title={title} />
+          {match.params.id === undefined ? (
+            <div className="sort display-flex align-center">
+              <ShopFilterResult filterResult={shopFilter.filterResult} />
+              <SortBy />
+              <StyleViewItems
+                onClick={setStyleView}
+                styleViewState={styleViewState}
+              />
+            </div>
+          ) : null}
         </div>
         {match.params.id === undefined ? (
           <div
@@ -124,7 +122,6 @@ const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
                   item.price > shopFilter.minPrice &&
                   item.price < shopFilter.maxPrice
                 ) {
-                  //setTempState(index + 1);
                   return (
                     <ProductItem
                       key={index}
@@ -136,14 +133,11 @@ const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
               })}
           </div>
         ) : (
-          <ProductCard onClick={setMainImageInProductCard} />
+          <ProductCard
+            itemDetail={getProductDetail(productsList, match.params.id)}
+          />
         )}
-        <ProductCard onClick={setMainImageInProductCard} />
       </div>
-
-      <Switch>
-        <Route></Route>
-      </Switch>
     </section>
   );
 };

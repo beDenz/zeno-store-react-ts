@@ -1,8 +1,10 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useContext } from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
+import { ShoppingCartContext } from "../../../service/cart";
 
 const Header: React.FC = (): ReactElement => {
+  const shoppingCartState = useContext(ShoppingCartContext);
   return (
     <header className="header container margin-center">
       <nav className="nav display-flex align-center flex-space-between">
@@ -51,7 +53,21 @@ const Header: React.FC = (): ReactElement => {
             <div className="cart">
               <Link to="/shopingcart">
                 <span className="cart__title">Cart: </span>
-                <span className="cart__price">$250</span>
+                <span className="cart__price">
+                  {shoppingCartState.state.length > 0
+                    ? shoppingCartState.state
+                        .reduce(
+                          (
+                            acc: number,
+                            value: { id: string; price: number }
+                          ) => {
+                            return acc + value.price;
+                          },
+                          0
+                        )
+                        .toFixed(2)
+                    : 0}
+                </span>
               </Link>
             </div>
           </div>
