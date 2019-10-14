@@ -135,6 +135,10 @@
         font-weight: 600;
         line-height: 30px;
         margin-bottom: 25px;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     &__price {

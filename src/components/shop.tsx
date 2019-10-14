@@ -70,7 +70,6 @@ const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
 
   const shoppingCartState = useContext(ShoppingCartContext);
 
-  console.log(shoppingCartState.state);
   return (
     <section className="shop container-1500 display-flex margin-center">
       <div className="filters">

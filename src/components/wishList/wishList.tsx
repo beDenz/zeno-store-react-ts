@@ -1,7 +1,11 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useContext } from "react";
 import "./wishList.scss";
+import WishListItem from "./wishListitem";
+import { WishListItemContext } from "../../service/wishlist";
+import { productsList, ProductItemsConfig } from "../../api/api";
 
 const WishList: React.FC = (): ReactElement => {
+  const WishListItemState = useContext(WishListItemContext);
   return (
     <section className="wishList container-small margin-center">
       <div className="wishList__row-titles display-flex flex-space-between row-border">
@@ -9,52 +13,15 @@ const WishList: React.FC = (): ReactElement => {
         <h3 className="wishList__title margin-right-60">Price</h3>
         <h3 className="wishList__title">Stock Status</h3>
       </div>
-      <div className="wishList__row-product display-flex align-center flex-space-between row-border">
-        <div className="wishList__product display-flex align-center width-50">
-          <div className="wishList__image">
-            <img src="" alt="" />
-          </div>
-          <h4 className="wishList__subtitle">Orange Chair</h4>
-        </div>
 
-        <span className="wishList__price">$136.00</span>
-
-        <span className="wishList__stock">Instock</span>
-
-        <div className="wishList__button-confirm">Add To Card</div>
-        <span className="wishList__button elegant-icon">&#x4d;</span>
-      </div>
-      <div className="wishList__row-product display-flex align-center flex-space-between row-border">
-        <div className="wishList__product display-flex align-center width-50">
-          <div className="wishList__image">
-            <img src="" alt="" />
-          </div>
-          <h4 className="wishList__subtitle">Table Desk</h4>
-        </div>
-
-        <span className="wishList__price">$1306.00</span>
-
-        <span className="wishList__stock">Out of stock</span>
-
-        <div className="wishList__button-confirm">Out of stock</div>
-        <span className="wishList__button elegant-icon">&#x4d;</span>
-      </div>
-      <div className="wishList__row-product display-flex align-center flex-space-between row-border">
-        <div className="wishList__product display-flex align-center width-50">
-          <div className="wishList__image">
-            <img src="" alt="" />
-          </div>
-          <h4 className="wishList__subtitle">Orange Chair</h4>
-        </div>
-
-        <span className="wishList__price">$136.00</span>
-
-        <span className="wishList__stock">Instock</span>
-
-        <div className="wishList__button-confirm">Add To Card</div>
-
-        <span className="wishList__button elegant-icon">&#x4d;</span>
-      </div>
+      {WishListItemState.state.map(
+        (itemMap: { id: string; price: number }, index: number) => {
+          const temp = productsList.filter(
+            (itemFilter: ProductItemsConfig) => itemFilter.id === itemMap.id
+          );
+          return <WishListItem key={index} item={temp[0]} />;
+        }
+      )}
     </section>
   );
 };

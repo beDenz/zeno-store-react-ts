@@ -2,9 +2,13 @@ import React, { ReactElement, useContext } from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../../service/cart";
+import { WishListItemContext } from "../../../service/wishlist";
+import classnames from "classnames";
 
 const Header: React.FC = (): ReactElement => {
   const shoppingCartState = useContext(ShoppingCartContext);
+  const WishListItemState = useContext(WishListItemContext);
+
   return (
     <header className="header container margin-center">
       <nav className="nav display-flex align-center flex-space-between">
@@ -43,19 +47,54 @@ const Header: React.FC = (): ReactElement => {
               name=""
               id=""
             />
-            <span className="nav__icon elegant-icon">&#x55;</span>
+            <div className="nav__icon-wrapper">
+              <span className="nav__icon elegant-icon">&#x55;</span>
+            </div>
             <Link to="/wishlist">
-              <span className="nav__icon elegant-icon">&#xe030;</span>
+              <div className="nav__icon-wrapper">
+                <span className="nav__icon elegant-icon">&#xe030;</span>
+                <div
+                  className={classnames(
+                    {
+                      "nav__icon-num display-flex align-center flex-justify-content-center":
+                        WishListItemState.state.length > 0
+                    },
+                    {
+                      displayNone:
+                        WishListItemState.state.length === 0 || undefined
+                    }
+                  )}
+                >
+                  {WishListItemState.state.length}
+                </div>
+              </div>
             </Link>
-            <Link to="/shopingcart">
-              <span className="nav__icon elegant-icon">&#xe013;</span>
+            <Link to="/shoppingcart">
+              <div className="nav__icon-wrapper">
+                <span className="nav__icon elegant-icon">&#xe013;</span>
+                <div
+                  className={classnames(
+                    {
+                      "nav__icon-num display-flex align-center flex-justify-content-center":
+                        shoppingCartState.state.length > 0
+                    },
+                    {
+                      displayNone:
+                        shoppingCartState.state.length === 0 || undefined
+                    }
+                  )}
+                >
+                  {shoppingCartState.state.length}
+                </div>
+              </div>
             </Link>
             <div className="cart">
-              <Link to="/shopingcart">
+              <Link to="/shoppingcart">
                 <span className="cart__title">Cart: </span>
                 <span className="cart__price">
                   {shoppingCartState.state.length > 0
-                    ? shoppingCartState.state
+                    ? "$" +
+                      shoppingCartState.state
                         .reduce(
                           (
                             acc: number,
@@ -66,7 +105,7 @@ const Header: React.FC = (): ReactElement => {
                           0
                         )
                         .toFixed(2)
-                    : 0}
+                    : "$0"}
                 </span>
               </Link>
             </div>

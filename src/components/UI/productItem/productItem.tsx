@@ -4,6 +4,7 @@ import "./productItem.scss";
 import classnames from "classnames";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../../service/cart";
+import { WishListItemContext } from "../../../service/wishlist";
 
 interface ProductItemConfig {
   productList: ProductItemsConfig;
@@ -15,6 +16,7 @@ const ProductItem: React.FC<ProductItemConfig> = ({
   productList
 }) => {
   const shoppingCartState = useContext(ShoppingCartContext);
+  const WishListItemState = useContext(WishListItemContext);
   return (
     <div
       className={classnames(
@@ -44,7 +46,7 @@ const ProductItem: React.FC<ProductItemConfig> = ({
               { productItemList__icon: styleViewState === "list" }
             )}
             onClick={() =>
-              shoppingCartState.dispatch({
+              WishListItemState.dispatch({
                 type: "add",
                 payload: { id: productList.id, price: productList.price }
               })
@@ -110,6 +112,12 @@ const ProductItem: React.FC<ProductItemConfig> = ({
                 styleViewState === "list"
             }
           )}
+          onClick={() =>
+            shoppingCartState.dispatch({
+              type: "add",
+              payload: { id: productList.id, price: productList.price }
+            })
+          }
         >
           Add To Cart
         </div>
@@ -121,6 +129,12 @@ const ProductItem: React.FC<ProductItemConfig> = ({
                 styleViewState === "list"
             }
           )}
+          onClick={() =>
+            WishListItemState.dispatch({
+              type: "add",
+              payload: { id: productList.id, price: productList.price }
+            })
+          }
         >
           &#xe030;
         </div>

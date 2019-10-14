@@ -15,21 +15,23 @@ const reducer = (
   switch (action.type) {
     case "add":
       return [...state, action.payload];
+    case "delete":
+      return state.filter(item => item.id !== action.payload.id);
     default:
       return state;
   }
 };
 
-export const wishListContext = React.createContext<ProductItemsConfig[] | any>(
-  initialState
-);
+export const WishListItemContext = React.createContext<
+  ProductItemsConfig[] | any
+>(initialState);
 
-export const ShoppingCartProvider: React.FC = ({ children }): JSX.Element => {
+export const WishListItemProvider: React.FC = ({ children }): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <wishListContext.Provider value={{ state, dispatch }}>
+    <WishListItemContext.Provider value={{ state, dispatch }}>
       {children}
-    </wishListContext.Provider>
+    </WishListItemContext.Provider>
   );
 };

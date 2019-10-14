@@ -12,9 +12,11 @@
 
     &__select {
         border: none;
-        width: 100px;
+        width: 150px;
         background-color: transparent;
         padding-left: 10px;
+        overflow: hidden;
+        padding-right: 30px;
 
         option {
             border: none;
