@@ -13,6 +13,7 @@ import ShoppingCart from "./components/shoppingCart/shoppingCart";
 import WishList from "./components/wishList/wishList";
 import { ShoppingCartProvider } from "./service/cart";
 import { WishListItemProvider } from "./service/wishlist";
+import CheckOut from "./components/checkOut/checkOut";
 
 const App: React.FC = () => {
   return (
@@ -23,19 +24,15 @@ const App: React.FC = () => {
             <Header />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route
-                exact
-                path="/blog"
-                component={() => <Blog title="blog" />}
-              />
+              <Route exact path="/home" component={Home} />
+              <Route exact path="/blog" component={Blog} />
               <Route exact path="/shop" component={Shop} />
               <Route exact path="/shop/:id" component={Shop} />
               <Route exact path="/faqs" component={Faqs} />
-              <Route exact path="/contact">
-                <Contact title="contact" />
-              </Route>
-              <Route path="/shoppingcart" component={() => <ShoppingCart />} />
-              <Route path="/wishlist" component={() => <WishList />} />
+              <Route exact path="/contact" component={Contact} />
+              <Route path="/shoppingcart" component={ShoppingCart} />
+              <Route path="/wishlist" component={WishList} />
+              <Route path="/CheckOut" component={CheckOut} />
               <Route path="*" component={Page404} />
             </Switch>
             <Footer />

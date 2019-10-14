@@ -1,13 +1,11 @@
-import React, { ReactElement, useState, useContext, useEffect } from "react";
+import React, { ReactElement, useState, useContext } from "react";
 import Pagetitle from "./UI/pageTitle/pagetitle";
 import ShopFilterResult from "./UI/shopFilterResult/shopFilterResult";
 import SortBy from "./UI/sortBy/sortBy";
 import StyleViewItems from "./UI/styleViewItems/styleViewItems";
 import TagsList from "./UI/tagsList/tagsList";
 import { productsList, ProductItemsConfig } from "../api/api";
-import ProductItem from "./UI/productItem/productItem";
 import PriceFilter from "./UI/priceFilter/priceFilter";
-import classnames from "classnames";
 import ProductCard from "./productCard/productCard";
 import { ShoppingCartContext } from "../service/cart";
 import {
@@ -19,9 +17,10 @@ import {
   useLocation,
   useRouteMatch
 } from "react-router-dom";
+import ProductsList from "./subComponents/productList";
+import Breadcrumb from "./UI/breadcrumb/breadcrumb";
 
-interface TitleConfig {
-  title?: string;
+interface ShopConfig {
   match: any;
 }
 
@@ -32,7 +31,7 @@ interface ShopFilterConfig {
   filterResult: number;
 }
 
-const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
+const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
   const [shopFilter, SetShopFilter] = useState<ShopFilterConfig>({
     minPrice: 1,
     maxPrice: 10000,
@@ -40,6 +39,9 @@ const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
     filterResult: 0
   });
   const [styleViewState, setStyleViewState] = useState<string | null>("grid");
+  const [typeOfSortItems, setTypeOfSortItems] = useState<string | undefined>(
+    "default"
+  );
 
   const onChangePrice = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (!e.target.value.match(/[^0-9]/gi)) {
@@ -68,6 +70,43 @@ const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
   ): ProductItemsConfig =>
     array.filter((item: ProductItemsConfig) => item.id === id)[0];
 
+  const onChangeTypeOfSortItems = (
+    option: React.FormEvent<HTMLSelectElement>
+  ): void => {
+    // const target = e.target as HTMLElement;
+    //console.log(option.target.value);
+    //console.log(option.currentTarget.value);
+    setTypeOfSortItems(option.currentTarget.value);
+  };
+
+  const funcSortProps = (type: string | undefined) => (
+    a: ProductItemsConfig,
+    b: ProductItemsConfig
+  ): any => {
+    switch (type) {
+      case "default":
+        return 0;
+      case "priceMinToHigh":
+        return a.price === b.price ? 0 : a.price > b.price ? 1 : -1;
+      case "priceHighToMin":
+        return a.price === b.price ? 0 : a.price < b.price ? 1 : -1;
+    }
+  };
+
+  const createTitle = (url: string): string[] => {
+    return url
+      .split(/\//)
+      .filter((item: string) => (item || item !== "" ? item : null));
+  };
+
+  const createBreadcrumb = (url: string): string[] => {
+    const home: string[] = ["home"];
+    const temp: string[] = url
+      .split(/\//)
+      .filter((item: string) => (item || item !== "" ? item : null));
+    return home.concat(temp);
+  };
+
   const shoppingCartState = useContext(ShoppingCartContext);
 
   return (
@@ -78,11 +117,15 @@ const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
       </div>
       <div className="shop__inner">
         <div className="shop__inner-first-row display-flex flex-space-between ">
-          <Pagetitle title={title} />
+          <div>
+            <Pagetitle title={createTitle(match.url)} />
+            <Breadcrumb title={createBreadcrumb(match.url)} />
+          </div>
+
           {match.params.id === undefined ? (
             <div className="sort display-flex align-center">
               <ShopFilterResult filterResult={shopFilter.filterResult} />
-              <SortBy />
+              <SortBy onChange={onChangeTypeOfSortItems} />
               <StyleViewItems
                 onClick={setStyleView}
                 styleViewState={styleViewState}
@@ -91,46 +134,12 @@ const Shop: React.FC<TitleConfig> = ({ title, match }): ReactElement => {
           ) : null}
         </div>
         {match.params.id === undefined ? (
-          <div
-            className={classnames(
-              "featured-products__items",
-              {
-                "display-flex flex-space-between flex-wrap":
-                  styleViewState === "grid"
-              },
-              { "flex-collum": styleViewState === "list" }
-            )}
-          >
-            {productsList
-              .filter(item =>
-                shopFilter.showCategory !== "all"
-                  ? shopFilter.showCategory
-                      .toLowerCase()
-                      .charAt(0)
-                      .toUpperCase() +
-                      shopFilter.showCategory.toLowerCase().substring(1) ===
-                    item.category
-                      .toLowerCase()
-                      .charAt(0)
-                      .toUpperCase() +
-                      item.category.toLowerCase().substring(1)
-                  : true
-              )
-              .map((item, index) => {
-                if (
-                  item.price > shopFilter.minPrice &&
-                  item.price < shopFilter.maxPrice
-                ) {
-                  return (
-                    <ProductItem
-                      key={index}
-                      productList={item}
-                      styleViewState={styleViewState}
-                    />
-                  );
-                }
-              })}
-          </div>
+          <ProductsList
+            shopFilter={shopFilter}
+            styleViewState={styleViewState}
+            funcSortProps={funcSortProps}
+            typeOfSortItems={typeOfSortItems}
+          />
         ) : (
           <ProductCard
             itemDetail={getProductDetail(productsList, match.params.id)}

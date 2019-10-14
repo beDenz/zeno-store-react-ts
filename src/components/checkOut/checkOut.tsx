@@ -1,7 +1,11 @@
-import React, { ReactElement } from "react";
+import React, { useContext } from "react";
 import "./checkOut.scss";
+import { productsList, ProductItemsConfig } from "../../api/api";
+import { ShoppingCartContext } from "../../service/cart";
 
-const CheckOut: React.FC = (): ReactElement => {
+const CheckOut: React.FC = (): JSX.Element => {
+  const shoppingCartState = useContext(ShoppingCartContext);
+  console.log(shoppingCartState.state);
   return (
     <section className="checkout container-small margin-center display-flex">
       <div className="billing-details">
@@ -104,26 +108,52 @@ const CheckOut: React.FC = (): ReactElement => {
           <h4 className="your-order__subtitle">Products</h4>
           <h4 className="your-order__subtitle">Total</h4>
         </div>
-        <div className="display-flex flex-space-between">
-          <span className="your-order__item">Leather shopper bag</span>
-          <span className="your-order__item">$75.99</span>
-        </div>
-        <div className="display-flex flex-space-between">
-          <span className="your-order__item">Pocket linen shirt</span>
-          <span className="your-order__item">$151.99</span>
-        </div>
-        <div className="display-flex flex-space-between">
-          <span className="your-order__item">Buckle wrap skirt</span>
-          <span className="your-order__item">$53.99</span>
-        </div>
+
+        {shoppingCartState.state.map(
+          (itemMap: { id: string; price: number }, index: number) => {
+            const item = productsList.filter(
+              (itemFilter: ProductItemsConfig) => itemFilter.id === itemMap.id
+            )[0];
+            return (
+              <div key={index} className="display-flex flex-space-between">
+                <span className="your-order__item">{item.title}</span>
+                <span className="your-order__item">${item.price}</span>
+              </div>
+            );
+          }
+        )}
 
         <div className="display-flex flex-space-between padding-22 border-bottom border-top">
           <h4 className="your-order__subtitle">Subtotal</h4>
-          <span className="your-order__subtitle">$750.99</span>
+          <span className="your-order__subtitle">
+            {shoppingCartState.state.length > 0
+              ? "$" +
+                shoppingCartState.state
+                  .reduce(
+                    (acc: number, value: { id: string; price: number }) => {
+                      return acc + value.price;
+                    },
+                    0
+                  )
+                  .toFixed(2)
+              : "$0"}
+          </span>
         </div>
         <div className="display-flex flex-space-between padding-18 border-bottom">
           <h4 className="your-order__subtitle">Total</h4>
-          <span className="your-order__subtitle color-red">$750.99</span>
+          <span className="your-order__subtitle color-red">
+            {shoppingCartState.state.length > 0
+              ? "$" +
+                shoppingCartState.state
+                  .reduce(
+                    (acc: number, value: { id: string; price: number }) => {
+                      return acc + value.price;
+                    },
+                    0
+                  )
+                  .toFixed(2)
+              : "$0"}
+          </span>
         </div>
         <div className="padding-18">
           <input type="checkbox" name="" id="createNewAccount" />

@@ -4,16 +4,19 @@ import Pagetitle from "./UI/pageTitle/pagetitle";
 import ContactForm from "./subComponents/contactForm/contactForm";
 import ContactInfo from "./subComponents/contactInfo/contactInfo";
 import Googlemap from "./UI/googlemap/googlemap";
+import { createBreadcrumb, createTitle } from "../service/utitiles";
 
-interface TitleConfig {
-  title?: string;
+interface ContactConfig {
+  match: any;
 }
 
-const Contact: React.FC<TitleConfig> = (props): ReactElement => {
+const Contact: React.FC<ContactConfig> = ({ match }): ReactElement => {
   return (
     <Fragment>
-      <Pagetitle title={props.title} />
-      <Breadcrumb />
+      <div className="text-align-center">
+        <Pagetitle title={createTitle(match.url)} />
+        <Breadcrumb title={createBreadcrumb(match.url)} />
+      </div>
       <ContactInfo />
       <Googlemap />
       <ContactForm />

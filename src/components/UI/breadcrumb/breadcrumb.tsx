@@ -1,11 +1,26 @@
 import React, { ReactElement } from "react";
+import { Link } from "react-router-dom";
 import "./breadcrumb.scss";
+interface BreadcrumbConfig {
+  title: string[];
+}
+const Breadcrumb: React.FC<BreadcrumbConfig> = ({ title }): ReactElement => {
+  const titlelength = title.length - 1;
 
-const Breadcrumb: React.FC = (): ReactElement => {
+  console.log(title);
+
   return (
     <div className="breadcrumb">
-      <span className="breadcrumb__home">Home</span> -
-      <span className="breadcrumb__thisPage">FAQS</span>
+      {title.map((item: string, index: number) =>
+        index < titlelength ? (
+          <span key={index} className="breadcrumb__home">
+            <Link to={"/" + item}>{item}</Link>
+            {` - `}
+          </span>
+        ) : (
+          <span key={index} className="breadcrumb__thisPage">{`${item}`}</span>
+        )
+      )}
     </div>
   );
 };

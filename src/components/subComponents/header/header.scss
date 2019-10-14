@@ -1,4 +1,9 @@
 // Header
+.header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+}
 
 .logo {
   &__title {
@@ -8,6 +13,7 @@
     font-size: 28px;
     letter-spacing: 1.35px;
     text-transform: uppercase;
+    user-select: none;
 
     &:after {
       position: absolute;
@@ -38,6 +44,8 @@
     }
 
     &:hover {
+
+
       border-bottom: 2px solid #ff6363;
     }
   }
@@ -102,8 +110,4 @@
   &__price {
     color: #ff424f;
   }
-}
-
-.displayNone {
-  display: none;
 }

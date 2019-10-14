@@ -1,7 +1,9 @@
-import React, { ReactElement, Fragment, useState } from "react";
+import React, { ReactElement, Fragment, useState, useContext } from "react";
 import "./productCard.scss";
 import Pagetitle from "../UI/pageTitle/pagetitle";
 import { ProductItemsConfig } from "../../api/api";
+import { ShoppingCartContext } from "../../service/cart";
+import { WishListItemContext } from "../../service/wishlist";
 
 interface ProductCardConfig {
   itemDetail: ProductItemsConfig;
@@ -10,13 +12,12 @@ interface ProductCardConfig {
 const ProductCard: React.FC<ProductCardConfig> = ({
   itemDetail
 }): ReactElement => {
-  console.log(itemDetail);
-
   const [mainImage, setMainImage] = useState<string>(`${itemDetail.id}_1`);
-
+  const shoppingCartState = useContext(ShoppingCartContext);
+  const WishListItemState = useContext(WishListItemContext);
   return (
     <Fragment>
-      <Pagetitle title="Product Left Sidebar" />
+      <Pagetitle />
       <div className="productCard display-flex">
         <div className="productCard__images display-flex flex-wrap">
           <div className="productCard__image image-main">
@@ -67,10 +68,26 @@ const ProductCard: React.FC<ProductCardConfig> = ({
                 +
               </div>
             </div>
-            <div className="productCard__button display-flex flex-justify-content-center align-center">
+            <div
+              className="productCard__button display-flex flex-justify-content-center align-center"
+              onClick={() =>
+                shoppingCartState.dispatch({
+                  type: "add",
+                  payload: { id: itemDetail.id, price: itemDetail.price }
+                })
+              }
+            >
               Add To Cart
             </div>
-            <div className="wishList-button display-flex flex-justify-content-center align-center elegant-icon">
+            <div
+              className="wishList-button display-flex flex-justify-content-center align-center elegant-icon"
+              onClick={() =>
+                WishListItemState.dispatch({
+                  type: "add",
+                  payload: { id: itemDetail.id, price: itemDetail.price }
+                })
+              }
+            >
               &#xe030;
             </div>
           </div>

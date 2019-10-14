@@ -13,13 +13,11 @@ const Header: React.FC = (): ReactElement => {
     <header className="header container margin-center">
       <nav className="nav display-flex align-center flex-space-between">
         <div>
-          <img src="img/Icon.svg" alt="" />
-        </div>
-        <div>
           <div className="logo">
             <h1 className="logo__title margin-center">Zano</h1>
           </div>
-
+        </div>
+        <div>
           <ul className="menu display-flex">
             <li className="menu__item">
               <Link to="/">Home</Link>
