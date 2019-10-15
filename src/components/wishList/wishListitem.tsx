@@ -5,10 +5,11 @@ import { WishListItemContext } from "../../service/wishlist";
 import { ShoppingCartContext } from "../../service/cart";
 
 interface WishListItemConfig {
-  item?: any;
+  item: ProductItemsConfig;
 }
 
 const WishListItem: React.FC<WishListItemConfig> = ({ item }): JSX.Element => {
+  console.log(item);
   const WishListItemState = useContext(WishListItemContext);
   const shoppingCartState = useContext(ShoppingCartContext);
   return (
@@ -24,11 +25,8 @@ const WishListItem: React.FC<WishListItemConfig> = ({ item }): JSX.Element => {
           <Link to={`/shop/${item.id}`}>{item.title}</Link>
         </h4>
       </div>
-
       <span className="wishList__price">${item.price}</span>
-
       <span className="wishList__stock">Instock</span>
-
       <div
         className="wishList__button-confirm"
         onClick={() =>

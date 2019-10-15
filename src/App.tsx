@@ -13,31 +13,37 @@ import ShoppingCart from "./components/shoppingCart/shoppingCart";
 import WishList from "./components/wishList/wishList";
 import { ShoppingCartProvider } from "./service/cart";
 import { WishListItemProvider } from "./service/wishlist";
+import { BillingProvider } from "./service/billing";
 import CheckOut from "./components/checkOut/checkOut";
+import { ResultFilterProvider } from "./service/filterresult";
 
 const App: React.FC = () => {
   return (
     <ShoppingCartProvider>
       <WishListItemProvider>
-        <Router>
-          <Fragment>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/home" component={Home} />
-              <Route exact path="/blog" component={Blog} />
-              <Route exact path="/shop" component={Shop} />
-              <Route exact path="/shop/:id" component={Shop} />
-              <Route exact path="/faqs" component={Faqs} />
-              <Route exact path="/contact" component={Contact} />
-              <Route path="/shoppingcart" component={ShoppingCart} />
-              <Route path="/wishlist" component={WishList} />
-              <Route path="/checkout" component={CheckOut} />
-              <Route path="*" component={Page404} />
-            </Switch>
-            <Footer />
-          </Fragment>
-        </Router>
+        <BillingProvider>
+          <Router>
+            <Fragment>
+              <Header />
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/blog" component={Blog} />
+                <ResultFilterProvider>
+                  <Route exact path="/shop" component={Shop} />
+                  <Route exact path="/shop/:id" component={Shop} />
+                </ResultFilterProvider>
+                <Route exact path="/faqs" component={Faqs} />
+                <Route exact path="/contact" component={Contact} />
+                <Route exact path="/shoppingcart" component={ShoppingCart} />
+                <Route exact path="/wishlist" component={WishList} />
+                <Route exact path="/checkout" component={CheckOut} />
+                <Route path="*" component={Page404} />
+              </Switch>
+              <Footer />
+            </Fragment>
+          </Router>
+        </BillingProvider>
       </WishListItemProvider>
     </ShoppingCartProvider>
   );

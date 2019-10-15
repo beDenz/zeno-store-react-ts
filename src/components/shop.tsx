@@ -1,4 +1,10 @@
-import React, { ReactElement, useState, useContext } from "react";
+import React, {
+  ReactElement,
+  useState,
+  useContext,
+  useCallback,
+  useMemo
+} from "react";
 import Pagetitle from "./UI/pageTitle/pagetitle";
 import ShopFilterResult from "./UI/shopFilterResult/shopFilterResult";
 import SortBy from "./UI/sortBy/sortBy";
@@ -7,6 +13,10 @@ import TagsList from "./UI/tagsList/tagsList";
 import { productsList, ProductItemsConfig } from "../api/api";
 import PriceFilter from "./UI/priceFilter/priceFilter";
 import ProductCard from "./productCard/productCard";
+import {
+  ResultFilterContext,
+  ResultFilterProvider
+} from "../service/filterresult";
 import {
   BrowserRouter as Router,
   Switch,
@@ -36,6 +46,8 @@ declare global {
 }
 
 const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
+  //const ResultFilterState = useContext(ResultFilterContext);
+  const ResultFilterState = useContext(ResultFilterContext);
   const [shopFilter, SetShopFilter] = useState<ShopFilterConfig>({
     minPrice: 1,
     maxPrice: 10000,
@@ -46,7 +58,7 @@ const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
   const [typeOfSortItems, setTypeOfSortItems] = useState<string | undefined>(
     "default"
   ); // вид сортировок
-  const [filterResult, setFilterResult] = useState<number>(0); // количество товаров после сортировок
+  //const [filterResult, setFilterResult] = useState<number>(0); // количество товаров после сортировок
 
   /// обработка фильтра по цене
   const onChangePrice = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -105,8 +117,8 @@ const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
   ): ProductItemsConfig[] {
     // определяем количество товаров после сортировок
     let arr: ProductItemsConfig[] = this;
-    setFilterResult(arr.length);
-    console.log(arr);
+    //setFilterResult(arr.length);
+    ResultFilterState.dispatch({ type: "add", payload: arr.length });
     return arr;
   }
 
@@ -114,11 +126,11 @@ const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
   //////////////////////////////////////////////////////////////////
 
   // функиция создания заголовков
-  const createTitle = (url: string): string[] => {
+  const createTitle = useCallback((url: string): string[] => {
     return url
       .split(/\//)
       .filter((item: string) => (item || item !== "" ? item : null));
-  };
+  }, []);
   // функция создания пути(хлебных крошек)
   const createBreadcrumb = (url: string): string[] => {
     const home: string[] = ["home"];
@@ -127,6 +139,13 @@ const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
       .filter((item: string) => (item || item !== "" ? item : null));
     return home.concat(temp);
   };
+  console.log(`!!!!!!!!!!!!`);
+  console.log(`Render Shop`);
+
+  console.log(shopFilter);
+  console.log(styleViewState);
+  console.log(typeOfSortItems);
+  console.log(ResultFilterState.state);
 
   return (
     <section className="shop container-1500 display-flex margin-center">
@@ -142,7 +161,7 @@ const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
           </div>
           {match.params.id === undefined ? (
             <div className="sort display-flex align-center">
-              <ShopFilterResult filterResult={filterResult} />
+              <ShopFilterResult />
               <SortBy onChange={onChangeTypeOfSortItems} />
               <StyleViewItems
                 onClick={setStyleView}

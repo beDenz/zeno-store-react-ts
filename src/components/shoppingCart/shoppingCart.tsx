@@ -1,20 +1,18 @@
-import React, { ReactElement, Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import "./shoppingCart.scss";
-import Pagetitle from "../UI/pageTitle/pagetitle";
 import ShoppingCartItem from "../subComponents/shoppingcartitem";
 import { productsList, ProductItemsConfig } from "../../api/api";
 import { ShoppingCartContext } from "../../service/cart";
 import { Link } from "react-router-dom";
 import Breadcrumb from "../UI/breadcrumb/breadcrumb";
+import Pagetitle from "../UI/pageTitle/pagetitle";
 import { createBreadcrumb, createTitle } from "../../service/utitiles";
 
 interface ShoppingCartConfig {
   match: any;
 }
 
-const ShoppingCart: React.FC<ShoppingCartConfig> = ({
-  match
-}): ReactElement => {
+const ShoppingCart: React.FC<ShoppingCartConfig> = ({ match }): JSX.Element => {
   const shoppingCartState = useContext(ShoppingCartContext);
   return (
     <div className="shopingCart container-small margin-center display-flex flex-collum">

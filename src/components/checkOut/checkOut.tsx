@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import "./checkOut.scss";
 import { productsList, ProductItemsConfig } from "../../api/api";
 import { ShoppingCartContext } from "../../service/cart";
+import { BillingContext } from "../../service/billing";
 
 const CheckOut: React.FC = (): JSX.Element => {
   const shoppingCartState = useContext(ShoppingCartContext);
-  console.log(shoppingCartState.state);
+  const billingState = useContext(BillingContext);
+  console.log(billingState.state);
   return (
     <section className="checkout container-small margin-center display-flex">
       <div className="billing-details">
@@ -22,6 +24,12 @@ const CheckOut: React.FC = (): JSX.Element => {
               type="text"
               name=""
               id=""
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                billingState.dispatch({
+                  type: "firstName",
+                  payload: e.target.value
+                })
+              }
             />
           </div>
           <div>
@@ -33,6 +41,12 @@ const CheckOut: React.FC = (): JSX.Element => {
               type="text"
               name=""
               id=""
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                billingState.dispatch({
+                  type: "lastName",
+                  payload: e.target.value
+                })
+              }
             />
           </div>
         </div>
@@ -42,6 +56,12 @@ const CheckOut: React.FC = (): JSX.Element => {
         <input
           className="billing-details__input margin-bottom-30"
           type="text"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            billingState.dispatch({
+              type: "country",
+              payload: e.target.value
+            })
+          }
         />
         <h4 className="billing-details__subtitle margin-bottom-30">
           Address<span>*</span>
@@ -50,11 +70,23 @@ const CheckOut: React.FC = (): JSX.Element => {
           className="billing-details__input margin-bottom-30"
           type="text"
           placeholder="Street Address"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            billingState.dispatch({
+              type: "street",
+              payload: e.target.value
+            })
+          }
         />
         <input
           className="billing-details__input margin-bottom-30"
           type="text"
           placeholder="Apartment, suite, unite ect (optinal)"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            billingState.dispatch({
+              type: "appart",
+              payload: e.target.value
+            })
+          }
         />
         <h4 className="billing-details__subtitle margin-bottom-30">
           Town/City<span>*</span>
@@ -62,6 +94,12 @@ const CheckOut: React.FC = (): JSX.Element => {
         <input
           className="billing-details__input margin-bottom-30"
           type="text"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            billingState.dispatch({
+              type: "city",
+              payload: e.target.value
+            })
+          }
         />
         <h4 className="billing-details__subtitle margin-bottom-30">
           Country/State<span>*</span>
@@ -69,6 +107,12 @@ const CheckOut: React.FC = (): JSX.Element => {
         <input
           className="billing-details__input margin-bottom-30"
           type="text"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            billingState.dispatch({
+              type: "Country",
+              payload: e.target.value
+            })
+          }
         />
         <h4 className="billing-details__subtitle margin-bottom-30">
           Postcode / ZIP<span>*</span>
@@ -76,6 +120,12 @@ const CheckOut: React.FC = (): JSX.Element => {
         <input
           className="billing-details__input margin-bottom-30"
           type="number"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            billingState.dispatch({
+              type: "postcode",
+              payload: e.target.value
+            })
+          }
         />
         <div className="display-flex flex-space-between">
           <div>
@@ -87,6 +137,12 @@ const CheckOut: React.FC = (): JSX.Element => {
               type="tel"
               name=""
               id=""
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                billingState.dispatch({
+                  type: "phone",
+                  payload: e.target.value
+                })
+              }
             />
           </div>
           <div>
@@ -98,6 +154,12 @@ const CheckOut: React.FC = (): JSX.Element => {
               type="email"
               name=""
               id=""
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                billingState.dispatch({
+                  type: "email",
+                  payload: e.target.value
+                })
+              }
             />
           </div>
         </div>

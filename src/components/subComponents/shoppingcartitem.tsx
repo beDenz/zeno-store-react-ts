@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { productsList, ProductItemsConfig } from "../../api/api";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../service/cart";
 

@@ -7,8 +7,6 @@ interface BreadcrumbConfig {
 const Breadcrumb: React.FC<BreadcrumbConfig> = ({ title }): ReactElement => {
   const titlelength = title.length - 1;
 
-  console.log(title);
-
   return (
     <div className="breadcrumb">
       {title.map((item: string, index: number) =>

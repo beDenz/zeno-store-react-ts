@@ -1,9 +1,12 @@
 .featured-products {
+    padding: 50px 0;
+
     &__title {
         color: #333333;
         font-size: 35px;
         font-weight: 600;
         line-height: 45px;
+        margin-bottom: 20px;
     }
 
     &__description {
@@ -12,6 +15,7 @@
         font-size: 15px;
         line-height: 25px;
         text-align: center;
+        margin-bottom: 30px;
     }
 
     &__items {

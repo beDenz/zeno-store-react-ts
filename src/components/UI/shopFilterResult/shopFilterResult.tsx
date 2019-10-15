@@ -1,20 +1,18 @@
-import React, { ReactElement, Fragment } from "react";
+import React, { useContext } from "react";
+import { ResultFilterContext } from "../../../service/filterresult";
 import "./shopFilterResult.scss";
 
-interface ShopFilterResultConfig {
-  filterResult: number;
-}
+interface ShopFilterResultConfig {}
 
-const ShopFilterResult: React.FC<ShopFilterResultConfig> = ({
-  filterResult
-}): ReactElement => {
+const ShopFilterResult: React.FC<ShopFilterResultConfig> = (): JSX.Element => {
+  const ResultFilterState = useContext(ResultFilterContext);
   return (
-    <Fragment>
-      <div className="shop-search-result">
-        <span className="shop-search-result__result">{filterResult}</span>
-        <span className="shop-search-result__text">Products found</span>
-      </div>
-    </Fragment>
+    <div className="shop-search-result">
+      <span className="shop-search-result__result">
+        {ResultFilterState.state.resultFilter}
+      </span>
+      <span className="shop-search-result__text">Products found</span>
+    </div>
   );
 };
 

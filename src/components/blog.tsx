@@ -1,4 +1,4 @@
-import React, { ReactElement, Fragment } from "react";
+import React from "react";
 import Breadcrumb from "./UI/breadcrumb/breadcrumb";
 import Pagetitle from "./UI/pageTitle/pagetitle";
 import { blogPost, blogPostConfig } from "../api/api";
@@ -8,7 +8,8 @@ interface TitleConfig {
   match: any;
 }
 
-const Blog: React.FC<TitleConfig> = ({ match }): ReactElement => {
+const Blog: React.FC<TitleConfig> = ({ match }): JSX.Element => {
+  console.log("blog");
   return (
     <section className="blog container-small margin-center display-flex flex-collum align-center">
       <div className="text-align-center">

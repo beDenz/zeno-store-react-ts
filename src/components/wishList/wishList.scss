@@ -1,6 +1,6 @@
 .wishList {
 
-    margin-top: 100px;
+    padding-top: 100px;
 
     &__title {
         color: #171717;
@@ -10,8 +10,7 @@
     }
 
     &__row-titles {
-        padding-right: 280px;
-        padding-bottom: 30px;
+        padding: 50px 280px 30px 0;
     }
 
     &__row-product {

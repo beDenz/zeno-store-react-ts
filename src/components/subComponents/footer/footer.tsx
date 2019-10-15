@@ -1,7 +1,8 @@
-import React, { ReactElement } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./footer.scss";
 
-const Footer: React.FC = (): ReactElement => {
+const Footer: React.FC = (): JSX.Element => {
   return (
     <footer className="footer container-small margin-center">
       <div className="contact">
@@ -16,22 +17,22 @@ const Footer: React.FC = (): ReactElement => {
           Email: <a href="mailto:support@zano.com">support@zano.com</a>
         </span>
         <span>
-          <a href="http://www.zano.furniture.com">www.zano.furniture.com</a>
+          <a href="http://www.zano.someaddress.com">zano.someaddress.com</a>
         </span>
       </div>
       <div className="company">
         <h3 className="footer__title">Company</h3>
         <span>
-          <a href="#">About Us</a>
+          <Link to="/aboutUs">About Us</Link>
         </span>
         <span>
-          <a href="#">Offices</a>
+          <Link to="/offices">Offices</Link>
         </span>
         <span>
-          <a href="#">Contact</a>
+          <Link to="/contact">Contact</Link>
         </span>
         <span>
-          <a href="#">Help & FAQ</a>
+          <Link to="/faqs">Help & FAQ</Link>
         </span>
       </div>
       <div className="links">

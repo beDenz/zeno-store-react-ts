@@ -1,5 +1,7 @@
 import React, { ReactElement } from "react";
 import "./featuredProducts.scss";
+import ProductItem from "../../UI/productItem/productItem";
+import { productsList, ProductItemsConfig } from "../../../api/api";
 
 const FeaturedProducts: React.FC = (): ReactElement => {
   return (
@@ -10,108 +12,9 @@ const FeaturedProducts: React.FC = (): ReactElement => {
         tempor incididunt ut labore et dolore
       </p>
       <div className="featured-products__items display-flex flex-space-between">
-        <div className="featured-products__item">
-          <div className="featured-products__item-image">
-            <div className="item-icons">
-              <div className="item-icons__icon">&#xe030;</div>
-              <div className="item-icons__icon">&#xe013;</div>
-            </div>
-          </div>
-          <div className="featured-products__item-description">
-            <h5 className="featured-products__item-title">Small Plate Set</h5>
-            <span className="featured-products__item-price">$45.00</span>
-          </div>
-        </div>
-        <div className="featured-products__item">
-          <div className="featured-products__item-image">
-            <div className="item-icons">
-              <div className="item-icons__icon">&#xe030;</div>
-              <div className="item-icons__icon">&#xe013;</div>
-            </div>
-          </div>
-          <div className="featured-products__item-description">
-            <h5 className="featured-products__item-title">Sierra Nevada</h5>
-            <span className="featured-products__item-price">$45.00</span>
-          </div>
-        </div>
-        <div className="featured-products__item">
-          <div className="featured-products__item-image">
-            <div className="item-icons">
-              <div className="item-icons__icon">&#xe030;</div>
-              <div className="item-icons__icon">&#xe013;</div>
-            </div>
-          </div>
-          <div className="featured-products__item-description">
-            <h5 className="featured-products__item-title">
-              Small Form Barstool
-            </h5>
-            <span className="featured-products__item-price">$28</span>
-          </div>
-        </div>
-        <div className="featured-products__item">
-          <div className="featured-products__item-image">
-            <div className="item-icons">
-              <div className="item-icons__icon">&#xe030;</div>
-              <div className="item-icons__icon">&#xe013;</div>
-            </div>
-          </div>
-          <div className="featured-products__item-description">
-            <h5 className="featured-products__item-title">Medusa Side Table</h5>
-            <span className="featured-products__item-price">$36.00</span>
-          </div>
-        </div>
-        <div className="featured-products__item">
-          <div className="featured-products__item-image">
-            <div className="item-icons">
-              <div className="item-icons__icon">&#xe030;</div>
-              <div className="item-icons__icon">&#xe013;</div>
-            </div>
-          </div>
-          <div className="featured-products__item-description">
-            <h5 className="featured-products__item-title">Option Chair</h5>
-            <span className="featured-products__item-price">$24.00</span>
-          </div>
-        </div>
-        <div className="featured-products__item">
-          <div className="featured-products__item-image">
-            <div className="item-icons">
-              <div className="item-icons__icon">&#xe030;</div>
-              <div className="item-icons__icon">&#xe013;</div>
-            </div>
-          </div>
-          <div className="featured-products__item-description">
-            <h5 className="featured-products__item-title">
-              Baking Dish - Mint
-            </h5>
-            <span className="featured-products__item-price">$16.00</span>
-          </div>
-        </div>
-        <div className="featured-products__item sale">
-          <div className="featured-products__item-image">
-            <div className="item-icons">
-              <div className="item-icons__icon">&#xe030;</div>
-              <div className="item-icons__icon">&#xe013;</div>
-            </div>
-          </div>
-          <div className="featured-products__item-description">
-            <h5 className="featured-products__item-title">Ferfera Cushion</h5>
-            <span className="featured-products__item-price">$42.00</span>
-          </div>
-        </div>
-        <div className="featured-products__item new">
-          <div className="featured-products__item-image">
-            <div className="item-icons">
-              <div className="item-icons__icon">&#xe030;</div>
-              <div className="item-icons__icon">&#xe013;</div>
-            </div>
-          </div>
-          <div className="featured-products__item-description">
-            <h5 className="featured-products__item-title">
-              Craft Pendant Lamp
-            </h5>
-            <span className="featured-products__item-price">$51.00</span>
-          </div>
-        </div>
+        {productsList.slice(0, 8).map((item, index) => (
+          <ProductItem key={index} productList={item} styleViewState="grid" />
+        ))}
       </div>
     </section>
   );
