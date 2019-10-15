@@ -7,7 +7,6 @@ interface ShopFilterConfig {
   minPrice: number;
   maxPrice: number;
   showCategory: string;
-  filterResult: number;
 }
 
 interface ProductsListConfig {
@@ -15,6 +14,7 @@ interface ProductsListConfig {
   styleViewState: string | null;
   funcSortProps: (type: string | undefined) => any;
   typeOfSortItems: string | undefined;
+  setNumberOfProducts: (this: ProductItemsConfig[]) => ProductItemsConfig[];
 }
 const ProductsList: React.FC<ProductsListConfig> = ({
   shopFilter,
@@ -47,21 +47,19 @@ const ProductsList: React.FC<ProductsListConfig> = ({
                 item.category.toLowerCase().substring(1)
             : true
         )
+        .filter(
+          item =>
+            item.price > shopFilter.minPrice && item.price < shopFilter.maxPrice
+        )
+        .setNumberOfProducts()
         .sort(funcSortProps(typeOfSortItems))
-        .map((item, index) => {
-          if (
-            item.price > shopFilter.minPrice &&
-            item.price < shopFilter.maxPrice
-          ) {
-            return (
-              <ProductItem
-                key={index}
-                productList={item}
-                styleViewState={styleViewState}
-              />
-            );
-          }
-        })}
+        .map((item, index) => (
+          <ProductItem
+            key={index}
+            productList={item}
+            styleViewState={styleViewState}
+          />
+        ))}
     </div>
   );
 };

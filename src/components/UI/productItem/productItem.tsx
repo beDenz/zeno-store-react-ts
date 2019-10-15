@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ProductItemsConfig } from "../../../api/api";
 import "./productItem.scss";
 import classnames from "classnames";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../../service/cart";
 import { WishListItemContext } from "../../../service/wishlist";
 

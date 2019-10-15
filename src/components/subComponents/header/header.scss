@@ -102,6 +102,7 @@
   font-weight: 600;
   line-height: 1rem;
   color: #020202;
+  width: 100px;
 
   &__title {
     color: #707070;
@@ -109,5 +110,6 @@
 
   &__price {
     color: #ff424f;
+    letter-spacing: 1px;
   }
 }

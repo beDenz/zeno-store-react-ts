@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ProductItemsConfig } from "../../api/api";
 import { Link } from "react-router-dom";
 import { WishListItemContext } from "../../service/wishlist";
+import { ShoppingCartContext } from "../../service/cart";
 
 interface WishListItemConfig {
   item?: any;
@@ -9,6 +10,7 @@ interface WishListItemConfig {
 
 const WishListItem: React.FC<WishListItemConfig> = ({ item }): JSX.Element => {
   const WishListItemState = useContext(WishListItemContext);
+  const shoppingCartState = useContext(ShoppingCartContext);
   return (
     <div className="wishList__row-product display-flex align-center flex-space-between row-border">
       <div className="wishList__product display-flex align-center width-50">
@@ -27,7 +29,17 @@ const WishListItem: React.FC<WishListItemConfig> = ({ item }): JSX.Element => {
 
       <span className="wishList__stock">Instock</span>
 
-      <div className="wishList__button-confirm">Add To Card</div>
+      <div
+        className="wishList__button-confirm"
+        onClick={() =>
+          shoppingCartState.dispatch({
+            type: "add",
+            payload: { id: item.id, price: item.price }
+          })
+        }
+      >
+        Add To Card
+      </div>
 
       <span
         className="wishList__button elegant-icon"

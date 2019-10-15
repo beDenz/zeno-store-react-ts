@@ -32,7 +32,7 @@ const App: React.FC = () => {
               <Route exact path="/contact" component={Contact} />
               <Route path="/shoppingcart" component={ShoppingCart} />
               <Route path="/wishlist" component={WishList} />
-              <Route path="/CheckOut" component={CheckOut} />
+              <Route path="/checkout" component={CheckOut} />
               <Route path="*" component={Page404} />
             </Switch>
             <Footer />
