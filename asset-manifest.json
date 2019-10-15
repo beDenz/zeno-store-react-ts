@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/zeno-store-react-ts/static/css/main.8bcf17c5.chunk.css",
-    "main.js": "/zeno-store-react-ts/static/js/main.f583b3a3.chunk.js",
-    "main.js.map": "/zeno-store-react-ts/static/js/main.f583b3a3.chunk.js.map",
+    "main.js": "/zeno-store-react-ts/static/js/main.2843b02f.chunk.js",
+    "main.js.map": "/zeno-store-react-ts/static/js/main.2843b02f.chunk.js.map",
     "runtime-main.js": "/zeno-store-react-ts/static/js/runtime-main.a86aa47f.js",
     "runtime-main.js.map": "/zeno-store-react-ts/static/js/runtime-main.a86aa47f.js.map",
     "static/js/2.ef0d1fb2.chunk.js": "/zeno-store-react-ts/static/js/2.ef0d1fb2.chunk.js",
     "static/js/2.ef0d1fb2.chunk.js.map": "/zeno-store-react-ts/static/js/2.ef0d1fb2.chunk.js.map",
     "index.html": "/zeno-store-react-ts/index.html",
-    "precache-manifest.49e26760c904c66d66d8806b67edb815.js": "/zeno-store-react-ts/precache-manifest.49e26760c904c66d66d8806b67edb815.js",
+    "precache-manifest.a33e4f4149f7a373356af79476978e15.js": "/zeno-store-react-ts/precache-manifest.a33e4f4149f7a373356af79476978e15.js",
     "service-worker.js": "/zeno-store-react-ts/service-worker.js",
     "static/css/main.8bcf17c5.chunk.css.map": "/zeno-store-react-ts/static/css/main.8bcf17c5.chunk.css.map",
     "static/media/index.scss": "/zeno-store-react-ts/static/media/ElegantIcons.fdd9e757.woff"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.a86aa47f.js",
     "static/js/2.ef0d1fb2.chunk.js",
     "static/css/main.8bcf17c5.chunk.css",
-    "static/js/main.f583b3a3.chunk.js"
+    "static/js/main.2843b02f.chunk.js"
   ]
 }
