@@ -31,7 +31,7 @@ const ProductItem: React.FC<ProductItemConfig> = ({
         )}
       >
         <img
-          src={`/image/products/${productList.category}/${productList.id}_1.jpg`}
+          src={`image/products/${productList.category}/${productList.id}_1.jpg`}
           alt=""
         />
         <div

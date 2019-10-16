@@ -22,27 +22,30 @@ const App: React.FC = () => {
     <ShoppingCartProvider>
       <WishListItemProvider>
         <BillingProvider>
-          <Router>
-            <Fragment>
-              <Header />
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/home" component={Home} />
-                <Route exact path="/blog" component={Blog} />
-                <ResultFilterProvider>
+          <ResultFilterProvider>
+            <Router>
+              {
+                //basename="/zeno-store-react-ts">
+              }
+              <Fragment>
+                <Header />
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/home" component={Home} />
+                  <Route exact path="/blog" component={Blog} />
                   <Route exact path="/shop" component={Shop} />
                   <Route exact path="/shop/:id" component={Shop} />
-                </ResultFilterProvider>
-                <Route exact path="/faqs" component={Faqs} />
-                <Route exact path="/contact" component={Contact} />
-                <Route exact path="/shoppingcart" component={ShoppingCart} />
-                <Route exact path="/wishlist" component={WishList} />
-                <Route exact path="/checkout" component={CheckOut} />
-                <Route path="*" component={Page404} />
-              </Switch>
-              <Footer />
-            </Fragment>
-          </Router>
+                  <Route exact path="/faqs" component={Faqs} />
+                  <Route exact path="/contact" component={Contact} />
+                  <Route exact path="/shoppingcart" component={ShoppingCart} />
+                  <Route exact path="/wishlist" component={WishList} />
+                  <Route exact path="/checkout" component={CheckOut} />
+                  <Route path="*" component={Page404} />
+                </Switch>
+                <Footer />
+              </Fragment>
+            </Router>
+          </ResultFilterProvider>
         </BillingProvider>
       </WishListItemProvider>
     </ShoppingCartProvider>

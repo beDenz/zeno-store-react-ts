@@ -63,28 +63,6 @@ export const productsList: ProductItemsConfig[] = [
     ] // массив обектов отзыввов
   },
   {
-    id: "DIME008", //
-    category: "furniture",
-    title: "Belham Living Grayson", // название
-    sku: "DIME008", // какой то id
-    price: 166.8, // новая цена
-    oldprice: 185.64, // старая цена
-    description:
-      "There are so many bulky, overbuilt ottomans on the market that it's nice to see the Belham Living Grayson Tufted Coffee Table Ottoman and know that somewhere out there, somebody is really thinking about giving us what we need and leaving out the stuff we don't. The no-nonsense chic of this piece comes from the classic look of a plump button-tufted top over a simple and open frame of powder-coated square-tube metal. Powder-coated metal won't rust and is easier to clean than raw metal. The neutral linen fabric that covers the thick cushion is accommodating enough to fit right in with your existing home decor scheme. Complete your living room with the other items in Belham Living's Grayson collection.", // описание
-    waight: 25, // вес
-    available: 5, // доступное количество
-    demention: "34L x 34W x 18H in.", // размеры
-    color: "Linen",
-    score: 4.7, // рейтинг
-    review: [
-      {
-        name: "name",
-        score: 5,
-        text: "review"
-      }
-    ] // массив обектов отзыввов
-  },
-  {
     id: "DIME016", //
     category: "furniture",
     title: "Remmington", // название
@@ -405,6 +383,468 @@ export const productsList: ProductItemsConfig[] = [
     available: 5, // доступное количество
     demention: "52L x 24W x 22H in.", // размеры
     color: "white",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "RENW2088", //
+    category: "lighting",
+    title: "Ren-Wil Clemente", // название
+    sku: "RENW2088", // какой то id
+    price: 653.64, // новая цена
+    oldprice: 768.99, // старая цена
+    description:
+      "Enhance your lighting décor with the Ren-Wil Clemente LPC4095 Pendant Light. This unconventional pendant light features a crisscross pattern of six metal canes suspended from a single stem. Each baton is capped with a silver shade and bulb (not included).", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "40 diam. x 36H in.", // размеры
+    color: "black",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "ELEG134", //
+    category: "lighting",
+    title: "Toureg 8000", // название
+    sku: "ELEG134", // какой то id
+    price: 130.0, // новая цена
+    oldprice: 130.0, // старая цена
+    description:
+      "Light up bedrooms and hallways in contemporary elegance with this Elegant Furniture & Lighting Toureg 8000 Flush Mount Light. Its overscaled, faceted crystal spheres come in a variety of styles. Finish and size options make this flush mounted light yours. It requires 40-watt candelabra base bulbs (not included).", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "19L x 19W x 14H in.", // размеры
+    color: "cristal",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "PROR1390", //
+    category: "lighting",
+    title: "Progress Lighting Mingle", // название
+    sku: "PROR1390", // какой то id
+    price: 173.5, // новая цена
+    oldprice: 173.5, // старая цена
+    description:
+      "The square and circle dot design on the Progress Lighting Mingle Square/Circle Pattern LED Flush Mount Light's steel frame will add interest to your ceiling. The pattern of the frame allows the drum shaped shade to peek through. The frame is finished in brushed nickel and the shade is an off-white. Choose from the available sizes to find the flush mount light that fits into your space. This light fixture requires one 17-watt LED bulb that is included.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "14 diam. x 5.75H in.", // размеры
+    color: "cristal",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "KOUB066", //
+    category: "lighting",
+    title: "Kouboo LLC Bamboori", // название
+    sku: "KOUB066", // какой то id
+    price: 145.0, // новая цена
+    oldprice: 145.0, // старая цена
+    description:
+      "The outer walls of the Kouboo LLC Bamboori 1050077 Pendant Light are crafted from natural fibers in an open design that allows you to see inside. This pendant light's core features a tightly woven column that stretches from top to bottom. Hand-crafted from a combination of buri and bamboo, this pendant light lends natural charm to your home. A single bulb at the center of the light radiates a warm glow to give your space a soothing and casual touch.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "26 diam. x 15H in.", // размеры
+    color: "cristal",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "NN681", //
+    category: "decor",
+    title: "Mini Cedar Pine Tree", // название
+    sku: "NN681", // какой то id
+    price: 38.36, // новая цена
+    oldprice: 38.36, // старая цена
+    description:
+      "Capture the spirit of the forest with this remarkable mini cedar pine tree. This diminutive 2 foot tree will whisk owners to a more natural state of mind with vibrant green colors and delicate foliage. It's ideal for display anywhere, indoors or outdoors, home, garden, or even the office. Makes a great gift too.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "13W x 11D x 24H in. ", // размеры
+    color: "Black Green",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "BSHD3381", //
+    category: "decor",
+    title: "Mini Cedar Pine Tree", // название
+    sku: "BSHD3381", // какой то id
+    price: 157.46, // новая цена
+    oldprice: 195.3, // старая цена
+    description:
+      "If you find yourself stopping to admire the Best Selling Home Elaina Circular Wall Mirror - 36 diam. in., you may as well check yourself out, too. This contemporary design features a frame of interlocking glass wedges for an elegant, yet playful look. Hang in the living room to create some extra depth or as a focal point in the entryway.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "36W x 2.8D x 36H in.", // размеры
+    color: "Black Green",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "NN684", //
+    category: "decor",
+    title: "Double Boxwood Ball Topiary", // название
+    sku: "NN684", // какой то id
+    price: 90.87, // новая цена
+    oldprice: 90.87, // старая цена
+    description:
+      "Man has been taking trimmers and clippers to Boxwoods for years. That's because this lovely shrub is one of nature's most hardy specimens, and does very well when shaped. This classic \"double ball\" Topiary captures the elegance of curving foliage, while retaining the lovely green color that makes the boxwood such a favorite. Plus, you'll never have to re-trim it! Comes complete with a pot.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "13 diam. x 35H in.", // размеры
+    color: "Black Green",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "RIZ2499", //
+    category: "decor",
+    title: "Rizzy Home Pillow", // название
+    sku: "RIZ2499", // какой то id
+    price: 27.7, // новая цена
+    oldprice: 27.7, // старая цена
+    description:
+      "      Instantly add a touch of Halloween to your home with the Rizzy Home Witch Cotton Decorative Pillow’s witch design. This spooky accent pillow features a springy fill of soft polyester and a durable cotton cover. A zip closure at the side lets you slip off the cover for spot cleaning when needed.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "20L x 20W in.", // размеры
+    color: "White",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "SYR5460", //
+    category: "decor",
+    title: "Surya Pillow", // название
+    sku: "SYR5460", // какой то id
+    price: 65.0, // новая цена
+    oldprice: 65.0, // старая цена
+    description:
+      'Treat your living room, deck, or patio to the Surya Boo Trick or Treat Outdoor Pillow. This pillow offers a "couldn\'t be easier" way to get ready for Halloween. Several fashionable Halloween colors are offered (subject to availability), and the message comes through loud and clear in a spooky font: "Trick or Treat!" Use this cushy, fluffy pillow indoors or outside. Spot clean. Made in the USA.', // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "20W x 4D x 20H in.", // размеры
+    color: "White",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "SYR4987", //
+    category: "decor",
+    title: "Surya Blooming Pillow", // название
+    sku: "SYR4987", // какой то id
+    price: 29.54, // новая цена
+    oldprice: 29.54, // старая цена
+    description:
+      "A stylized floral pattern in smart color options make this Surya Blooming Buds Decorative Pillow a modern choice for dressing your bed or sofa. Choose from select, premium fill options, too.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "20L x 20W x 5H in.", // размеры
+    color: "White",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "WALM6907", //
+    category: "decor",
+    title: "MoDRN Velvet", // название
+    sku: "WALM6907", // какой то id
+    price: 29.54, // новая цена
+    oldprice: 29.54, // старая цена
+    description:
+      "The MoDRN Velvet Round Decorative Floor Pillow perfectly combines elements of modern and retro design. This plush, oversized circular floor pillow features a stunning look and soft texture. A removable cover in easy-care polyester makes spot cleaning a breeze, and a poly fill ensures a plump, full shape.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "24 diam. in.", // размеры
+    color: "White",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "LL276", //
+    category: "decor",
+    title: "River City Clocks", // название
+    sku: "LL276", // какой то id
+    price: 29.54, // новая цена
+    oldprice: 29.54, // старая цена
+    description:
+      "Introduce impeccable craftsmanship into your home with the River City Clocks Eight Day Musical Cuckoo Clock with Moving Barmaid Beer Drinkers and Waterwheel. This heirloom piece is hand-carved by master craftsmen in the Black Forest of Germany and features all-brass mechanical movements. The moving pieces include a barmaid, beer drinkers, and a moving waterwheel. It cuckoos every half hour and at the top of the hour, plus alternates between playing Edelweiss and The Happy Wonderer.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "13W x 7D x 14H in.", // размеры
+    color: "White",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "WALM7472", //
+    category: "furniture",
+    title: "MoDRN Glam Marion Desk", // название
+    sku: "WALM7472", // какой то id
+    price: 329.0, // новая цена
+    oldprice: 329.0, // старая цена
+    description:
+      "The perfect antidote to that dreaded mid-afternoon work slump? Try the MoDRN Glam Marion Desk, whose gleaming, brass-plated metal shines even more brightly against the wood's rich walnut veneers. Its fully finished back and sides allow for versatile placement anywhere in your home office. Storage drawers (with fully finished interiors) rest on smooth ball-bearing slides, giving you easy access to your important files and office supplies. The legs, arranged in an eye-catching, Art Deco-inspired shape, come with plastic glides to protect your floors from unsightly scratches and scrapes. For care, wipe the desktop clean with a damp cloth - no harsh cleaners or chemicals required.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "52W x 24D x 29H in.", // размеры
+    color: "White",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "BHI1318", //
+    category: "furniture",
+    title: "MoDRN Glam Marion Desk", // название
+    sku: "BHI1318", // какой то id
+    price: 343.76, // новая цена
+    oldprice: 343.76, // старая цена
+    description:
+      "Whether it's placed in a corner or in the middle of a room, the Bush Buena Vista 60 in. L-Shaped Desk - Madison Cherry will look right at home. With plenty of workspace you'll be able to spread your work out and still have room for a computer, printer, and other office equipment.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "59.49W x 59.49D x 66.18H in.", // размеры
+    color: "White",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "MEIY053", //
+    category: "chair",
+    title: "Belham Chair", // название
+    sku: "MEIY053", // какой то id
+    price: 343.76, // новая цена
+    oldprice: 343.76, // старая цена
+    description:
+      "Whether it's placed in a corner or in the middle of a room, the Bush Buena Vista 60 in. L-Shaped Desk - Madison Cherry will look right at home. With plenty of workspace you'll be able to spread your work out and still have room for a computer, printer, and other office equipment.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "59.49W x 59.49D x 66.18H in.", // размеры
+    color: "Green",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "ALZ1176", //
+    category: "chair",
+    title: "Belham Living Burton", // название
+    sku: "ALZ1176", // какой то id
+    price: 263.0, // новая цена
+    oldprice: 263.0, // старая цена
+    description:
+      "With its slatted sides and flat armrests, the Belham Living Burton Mission Arm Chair was clearly inspired by classic Craftsman furniture. This arm chair boasts a quality wood frame in a handsome oak finish. Its thick seat and back cushions are upholstered in dark brown bonded leather for comfort and style.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "32.75W x 33.75D x 34.50H in.", // размеры
+    color: "Green",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "BOR039", //
+    category: "chair",
+    title: "Boraam Magellan", // название
+    sku: "BOR039", // какой то id
+    price: 92.4, // новая цена
+    oldprice: 92.4, // старая цена
+    description:
+      "Sure to be the seat you'll always want to take, the Boraam 29-Inch Magellan Backless Swivel Bar Stool - Brandy features a versatile backless design that's ideal for any room in the house with a bar-height table or counter. If sitting still isn't your thing, you're in luck: the Boraam's swiveling seat is made with a durable steel mechanism that's designed to last. Speaking of made-to-last, this bar stool is constructed from solid hardwood with a welcoming, warm brandy finish. The square legs slightly taper at the bottom for a tasteful touch, and the full footrest adds stability ... and a home for tired feet. For your comfort and peace of mind, the seat cushion is made of fire-resistant foam upholstered in faux leather. You can easily slide this bar stool out the way when it's not in use. Measures: 18W x 29H inches. Some assembly requried.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "18W x 18D x 29H in.", // размеры
+    color: "Green",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "BOR010", //
+    category: "chair",
+    title: "Boraam Palmetto", // название
+    sku: "BOR010", // какой то id
+    price: 92.4, // новая цена
+    oldprice: 92.4, // старая цена
+    description:
+      "Ideal for a bar or dining area, the Boraam 29-Inch Palmetto Swivel Bar Stool attracts attention. This ultra-stylish and comfortable bar stool is the perfect height for tall countertops. Built of solid hardwood, the Palmetto Swivel Bar Stool features a fully-swiveling seat covered in lush black vinyl for a contemporary look. Fine construction and craftsmanship ensures that this stool will withstand daily use and remain a favorite part of your seating arrangements. Some assembly is required", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "18W x 18D x 29H in.", // размеры
+    color: "Cherry",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "DWLL292", //
+    category: "chair",
+    title: "Allegro Side Chair", // название
+    sku: "DWLL292", // какой то id
+    price: 92.4, // новая цена
+    oldprice: 92.4, // старая цена
+    description:
+      "Side Chair Description Add interest and color to your decor with the Allegro Side Chair - Gray/Yellow Hex. Its kiln-dried hardwood frame is made to last and finished in espresso to create a warm, inviting look. Featuring a modern hex pattern in yellow, gray, and white, this chair is the perfect accent piece whether you place it in your living room, study, foyer, or bedroom. Its streamlined look and transitional style complements a wide variety of decors while the high-density foam seating ensures you’ll be comfortable whether you’re reading, watching TV, playing games, or spending time with friends. Some minor assembly is required.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "18W x 18D x 29H in.", // размеры
+    color: "Cherry",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "KINF020", //
+    category: "chair",
+    title: "Tufted Storage Ottoman", // название
+    sku: "KINF020", // какой то id
+    price: 67.15, // новая цена
+    oldprice: 67.15, // старая цена
+    description:
+      "The velvety Kinfine USA Large Round Button-tufted Storage Ottoman looks even better in person. From the solid wood legs to the piping trim and button-tufted top, you'll be impressed with the attention to detail that goes into this round, upholstered ottoman. Lift the lid, and you'll discover a roomy storage space that's perfect for concealing throws, pillows, or your child or grandchild's toys!", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "19.5L x 19.5D x 18.5H in.", // размеры
+    color: "Cherry",
+    score: 4.0, // рейтинг
+    review: [
+      {
+        name: "name",
+        score: 5,
+        text: "review"
+      }
+    ] // массив обектов отзыввов
+  },
+  {
+    id: "REDU083", //
+    category: "chair",
+    title: "Upholstered Dining Chair", // название
+    sku: "REDU083", // какой то id
+    price: 209.50, // новая цена
+    oldprice: 209.50, // старая цена
+    description:
+      "The posh and comfortable Belham Living Carter Mid Century Modern Upholstered Dining Chair - Set of 2 adds a kick of mid-century modern style to your dining room. Designed to complement any decor, this set comes in your choice of available fabric colors so you can create the perfect look for your dining room. Exposed rubberwood bases and tapered legs in a walnut finish, along with the slightly curved back, enhance the mid-century appeal. Plus, with its plush seating, these chairs also give you the perfect place to relax as you enjoy drinks, good food, and fun times with friends. Beautifully crafted to elevate the style of your home, these chairs can also be used as accent pieces in your living room, loft, or home office.", // описание
+    waight: 10, // вес
+    available: 5, // доступное количество
+    demention: "20W x 23.5D x 35.5H in.", // размеры
+    color: "Cherry",
     score: 4.0, // рейтинг
     review: [
       {
