@@ -1,0 +1,120 @@
+.slider {
+    position: relative;
+    box-sizing: border-box;
+    height: 800px;
+    background-color: #dbf4ff;
+    overflow: hidden;
+    background: rgb(219, 244, 255);
+    background: linear-gradient(90deg, rgba(219, 244, 255, 1) 67%, rgba(238, 218, 211, 1) 67%);
+
+    img {
+        max-width: 100%;
+    }
+
+    &__arrow {
+        position: absolute;
+        color: #ffffff;
+        font-size: 50px;
+        cursor: pointer;
+        top: 50%;
+
+        &:hover {
+            color: #ff424f;
+        }
+    }
+
+    .left {
+
+        left: 30px;
+    }
+
+    .right {
+
+        right: 30px;
+    }
+
+    .slide {
+        position: absolute;
+        top: 55px;
+        bottom: 43px;
+        left: 195px;
+        right: 173px;
+        transition: transform 1s, visibility 1s;
+
+
+
+        &__description {
+            max-width: 593px;
+        }
+
+        &__title {
+            color: #333333;
+            font-size: 55px;
+            font-weight: 600;
+            line-height: 67px;
+            margin-bottom: 20px;
+        }
+
+        &__text {
+            color: #666666;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 25px;
+            margin-bottom: 60px;
+        }
+
+        &__hashtag {
+            background-color: #ff6363;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 45px;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+        }
+
+        &__image {
+            max-width: 638px;
+            max-height: 703px;
+            background-color: #ebebeb;
+        }
+
+        &__button {
+            cursor: pointer;
+            display: inline-flex;
+            padding: 18px 32px;
+            border-radius: 24px;
+            border: 2px solid #ff6363;
+            color: #333333;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            user-select: none;
+
+            span {
+                padding-left: 10px;
+            }
+
+            &:hover {
+                color: #fff;
+                background-color: #ff6363;
+            }
+        }
+    }
+
+    .centerPosition {
+        transform: translateX(0);
+    }
+
+    .leftPosition {
+        transform: translateX(-200%);
+        visibility: hidden;
+    }
+
+    .rightPosition {
+        transform: translateX(200%);
+        visibility: hidden;
+    }
+}

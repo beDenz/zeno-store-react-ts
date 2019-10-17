@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import "./featuredProducts.scss";
 import ProductItem from "../../UI/productItem/productItem";
-import { productsList, ProductItemsConfig } from "../../../api/api";
+import { productsList } from "../../../api/api";
 
 const FeaturedProducts: React.FC = (): ReactElement => {
   return (

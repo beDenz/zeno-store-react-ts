@@ -2,8 +2,7 @@ import React, {
   ReactElement,
   useState,
   useContext,
-  useCallback,
-  useMemo
+  useCallback
 } from "react";
 import Pagetitle from "./UI/pageTitle/pagetitle";
 import ShopFilterResult from "./UI/shopFilterResult/shopFilterResult";
@@ -13,10 +12,7 @@ import TagsList from "./UI/tagsList/tagsList";
 import { productsList, ProductItemsConfig } from "../api/api";
 import PriceFilter from "./UI/priceFilter/priceFilter";
 import ProductCard from "./productCard/productCard";
-import {
-  ResultFilterContext,
-  ResultFilterProvider
-} from "../service/filterresult";
+import { ResultFilterContext } from "../service/filterresult";
 import {
   BrowserRouter as Router,
   Switch,

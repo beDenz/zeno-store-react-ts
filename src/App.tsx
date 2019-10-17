@@ -11,10 +11,10 @@ import Faqs from "./components/faqs/faqs";
 import Shop from "./components/shop";
 import ShoppingCart from "./components/shoppingCart/shoppingCart";
 import WishList from "./components/wishList/wishList";
+import CheckOut from "./components/checkOut/checkOut";
 import { ShoppingCartProvider } from "./service/cart";
 import { WishListItemProvider } from "./service/wishlist";
 import { BillingProvider } from "./service/billing";
-import CheckOut from "./components/checkOut/checkOut";
 import { ResultFilterProvider } from "./service/filterresult";
 
 const App: React.FC = () => {
@@ -33,6 +33,7 @@ const App: React.FC = () => {
                   <Route exact path="/" component={Home} />
                   <Route exact path="/home" component={Home} />
                   <Route exact path="/blog" component={Blog} />
+                  <Route exact path="/blog/:id" component={Blog} />
                   <Route exact path="/shop" component={Shop} />
                   <Route exact path="/shop/:id" component={Shop} />
                   <Route exact path="/faqs" component={Faqs} />

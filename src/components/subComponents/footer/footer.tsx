@@ -60,7 +60,7 @@ const Footer: React.FC = (): JSX.Element => {
             placeholder="Email"
           />
           <button className="newslatter__btn">
-            <img src="image/footerIcon.svg" alt="" />
+            <img src="/image/footerIcon.svg" alt="" />
           </button>
         </form>
       </div>

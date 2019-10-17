@@ -11,8 +11,10 @@
     justify-content: center;
 
     &__item {
-        display: grid;
+        //@errordisplay: grid;
         height: 350px;
+        display: flex;
+        justify-content: flex-end;
 
         img {
             grid-area: 1 / 1 / 2 / 3;
@@ -29,43 +31,46 @@
 
     .item2 {
         //width: 425px;
-        background: url("/image/item/item2.png") no-repeat bottom left, #e4f5e5;
+        background: url("/image/item/item2.png") no-repeat bottom 10% left 10%, #e4f5e5;
         grid-area: item2;
     }
 
     .item3 {
         //width: 425px;
         height: 730px;
-        background: url("/image/item/item3.png") no-repeat bottom center, #fff9de;
+        background: url("/image/item/item3.png") no-repeat bottom 10% center, #fff9de;
         grid-area: item3;
     }
 
     .item4 {
         //width: 425px;
-        background: url("/image/item/item4.png") no-repeat, #e7f4ff;
+        background: url("/image/item/item4.png") no-repeat left 10% top, #e7f4ff;
         grid-area: item4;
     }
 
     .item5 {
         //width: 850px;
-        background: url("/image/item/item5.png") no-repeat bottom center, #feefe0;
+        background: url("/image/item/item5.png") no-repeat bottom left 10%, #feefe0;
         grid-area: item5;
         //margin-left: -150px;
     }
 
     &__description {
-        padding: 50px 20px 0 0;
-        grid-area: 1 / 2 / 2 / 3;
+        padding: 50px 50px 0 0;
+        //grid-area: 1 / 2 / 2 / 3;
     }
 
     &__title {
         color: #333333;
         font-size: 20px;
+        margin-bottom: 25px;
     }
 
     &__hashtag {
         color: red;
         text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
     }
 
     &__button {
