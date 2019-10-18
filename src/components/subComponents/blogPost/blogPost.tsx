@@ -24,7 +24,7 @@ const BlogPostPage: React.FC<BlogPostPageConfig> = ({ item }): JSX.Element => {
           By Laura Green | January 14, 2019 | 8 Comments
         </div>
         <div className="blog-detail__image margin-center margin-top-30 margin-bottom-30">
-          <img src="/image/blog/1.jpg" alt="" />
+          <img src="image/blog/1.jpg" alt="" />
         </div>
         <p className="blog-detail__text container-blog margin-center">
           The site is characterized by organically grown buildings that vary
@@ -51,16 +51,16 @@ const BlogPostPage: React.FC<BlogPostPageConfig> = ({ item }): JSX.Element => {
         </p>
         <div className="blog-detail__images-grid margin-center margin-bottom-30 margin-top-30">
           <div className="blog-detail__image image1">
-            <img src="/image/blog/2.jpg" alt="" />
+            <img src="image/blog/2.jpg" alt="" />
           </div>
           <div className="blog-detail__image image2">
-            <img src="/image/blog/3.jpg" alt="" />
+            <img src="image/blog/3.jpg" alt="" />
           </div>
           <div className="blog-detail__image image3">
-            <img src="/image/blog/4.jpg" alt="" />
+            <img src="image/blog/4.jpg" alt="" />
           </div>
           <div className="blog-detail__image image4">
-            <img src="/image/blog/5.jpg" alt="" />
+            <img src="image/blog/5.jpg" alt="" />
           </div>
         </div>
         <h3 className="blog-detail__subtitle container-blog margin-center">

@@ -59,8 +59,8 @@ const Footer: React.FC = (): JSX.Element => {
             type="text"
             placeholder="Email"
           />
-          <button className="newslatter__btn">
-            <img src="/image/footerIcon.svg" alt="" />
+          <button type="submit" className="newslatter__btn">
+            <img src="image/footericon.svg" alt="" />
           </button>
         </form>
       </div>
