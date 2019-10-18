@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e596e7b2689ae78e08b00c4fb8db8ef6",
+    "revision": "506f910b78eb417210323ce8b3a3bddc",
     "url": "/zeno-store-react-ts/index.html"
   },
   {
-    "revision": "04ab2f7b5bee43ba89f7",
-    "url": "/zeno-store-react-ts/static/css/main.8bcf17c5.chunk.css"
+    "revision": "dc06107132c7f1b3316c",
+    "url": "/zeno-store-react-ts/static/css/main.e7c654bf.chunk.css"
   },
   {
-    "revision": "18fc92d8dd75a6da49a0",
-    "url": "/zeno-store-react-ts/static/js/2.ef0d1fb2.chunk.js"
+    "revision": "76f7a51229dda19df1e2",
+    "url": "/zeno-store-react-ts/static/js/2.b1bcc4c5.chunk.js"
   },
   {
-    "revision": "04ab2f7b5bee43ba89f7",
-    "url": "/zeno-store-react-ts/static/js/main.7bd2a6d5.chunk.js"
+    "revision": "dc06107132c7f1b3316c",
+    "url": "/zeno-store-react-ts/static/js/main.0fd9635b.chunk.js"
   },
   {
     "revision": "731259be762830856e44",

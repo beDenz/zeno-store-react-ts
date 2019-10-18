@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/zeno-store-react-ts/precache-manifest.160dd6ef717c63bb476c78b97246892e.js"
+  "/zeno-store-react-ts/precache-manifest.d60851523823fc3db7277d358879a63a.js"
 );
 
 self.addEventListener('message', (event) => {
