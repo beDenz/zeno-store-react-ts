@@ -2,9 +2,12 @@ import React from "react";
 
 const CommentBlogForm: React.FC = (): JSX.Element => {
   return (
-    <div className="blog-comment-form container-blog margin-center">
+    <div className="blog-comment-form container-blog margin-center margin-top-30">
       <h1 className="page-title margin-center">Leave A Comment</h1>
-      <form className="display-flex flex-wrap flex-space-between" action="">
+      <form
+        className="display-flex flex-wrap flex-space-between margin-top-30"
+        action=""
+      >
         <input
           className="blog-comment-form__input"
           type="text"

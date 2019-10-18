@@ -22,7 +22,6 @@
     &__image {
         cursor: pointer;
         width: 293px;
-
         position: relative;
 
         &:after {
@@ -56,5 +55,11 @@
 
     img {
         max-width: 100%;
+    }
+
+    @media all and (max-width: 376px) {
+        &__image:not(:first-child) {
+            display: none
+        }
     }
 }

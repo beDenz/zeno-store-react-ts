@@ -1,4 +1,4 @@
-import React, { ReactElement, useContext } from "react";
+import React, { ReactElement, useContext, useState } from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../../service/cart";
@@ -8,6 +8,11 @@ import classnames from "classnames";
 const Header: React.FC = (): ReactElement => {
   const shoppingCartState = useContext(ShoppingCartContext);
   const WishListItemState = useContext(WishListItemContext);
+  const [mobileMenu, setMobileMenu] = useState("close");
+
+  const openMobileMenuBtn = (): void => {
+    mobileMenu === "close" ? setMobileMenu("open") : setMobileMenu("close");
+  };
 
   return (
     <header className="header container margin-center">
@@ -99,8 +104,65 @@ const Header: React.FC = (): ReactElement => {
               </span>
             </Link>
           </div>
-          <span className="nav__mobile-button elegant-icon">&#x61;</span>
+          <span
+            className="nav__mobile-button elegant-icon "
+            onClick={openMobileMenuBtn}
+          >
+            &#x61;
+          </span>
         </div>
+        <ul
+          className={classnames(
+            "mobile-menu",
+            { open: mobileMenu === "open" },
+            { close: mobileMenu === "close" }
+          )}
+        >
+          <li className="display-flex flex-justify-content-end">
+            <span
+              className="mobile-menu__closebtn elegant-icon"
+              onClick={openMobileMenuBtn}
+            >
+              &#x4d;
+            </span>
+          </li>
+          <li
+            className="mobile-menu__item"
+            onClick={() => setMobileMenu("close")}
+          >
+            <Link to="/">Home</Link>
+          </li>
+          <li
+            className="mobile-menu__item"
+            onClick={() => setMobileMenu("close")}
+          >
+            <Link to="/shop">Shop</Link>
+          </li>
+          <li
+            className="mobile-menu__item"
+            onClick={() => setMobileMenu("close")}
+          >
+            <Link to="/faqs">faqs</Link>
+          </li>
+          <li
+            className="mobile-menu__item"
+            onClick={() => setMobileMenu("close")}
+          >
+            <Link to="/blog">blog</Link>
+          </li>
+          <li
+            className="mobile-menu__item"
+            onClick={() => setMobileMenu("close")}
+          >
+            <Link to="/contact">contact</Link>
+          </li>
+          <li
+            className="mobile-menu__item"
+            onClick={() => setMobileMenu("close")}
+          >
+            about us
+          </li>
+        </ul>
       </nav>
     </header>
   );

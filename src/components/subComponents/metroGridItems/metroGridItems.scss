@@ -78,5 +78,7 @@
         font-weight: 600px;
     }
 
-
+    @media all and (max-width: 376px) {
+        display: none;
+    }
 }

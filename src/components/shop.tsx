@@ -1,9 +1,4 @@
-import React, {
-  ReactElement,
-  useState,
-  useContext,
-  useCallback
-} from "react";
+import React, { ReactElement, useState, useContext, useCallback } from "react";
 import Pagetitle from "./UI/pageTitle/pagetitle";
 import ShopFilterResult from "./UI/shopFilterResult/shopFilterResult";
 import SortBy from "./UI/sortBy/sortBy";

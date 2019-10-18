@@ -11,10 +11,10 @@ const FeaturedProducts: React.FC = (): ReactElement => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore
       </p>
-      <div className="featured-products__items display-flex flex-space-between">
+      <div className="featured-products__items display-flex flex-space-between flex-wrap">
         {productsList.slice(0, 8).map((item, index) => (
           <ProductItem key={index} productList={item} styleViewState="grid" />
-        ))}
+        ))} 
       </div>
     </section>
   );

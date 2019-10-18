@@ -1,4 +1,6 @@
 .service {
+    user-select: none;
+
     &__item {
         width: 370px;
         height: 286px;
@@ -30,5 +32,13 @@
         font-size: 15px;
         line-height: 25px;
         text-align: center;
+    }
+
+    @media all and (max-width: 376px) {
+        flex-direction: column;
+
+        &__item {
+            width: 100%
+        }
     }
 }

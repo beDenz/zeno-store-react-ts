@@ -77,6 +77,12 @@
     &:hover &__icons {
         display: flex;
     }
+
+    @media all and (max-width: 376px) {
+        &:not(:last-child) {
+            margin-bottom: 25px;
+        }
+    }
 }
 
 .productItemList {
@@ -108,7 +114,7 @@
     }
 
     &__preview-description {
-        width: 491px;
+        max-width: 491px;
         color: #707070;
         font-size: 16px;
         font-weight: 400;
@@ -130,7 +136,6 @@
 
     &__title {
 
-        color: #333333;
         font-size: 30px;
         font-weight: 600;
         line-height: 30px;

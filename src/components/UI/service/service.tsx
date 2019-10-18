@@ -3,7 +3,7 @@ import "./service.scss";
 
 const Service: React.FC = (): ReactElement => {
   return (
-    <section className="service display-flex flex-justify-content-center margin-top-30">
+    <section className="service display-flex flex-justify-content-center margin-top-30 margin-center">
       <div className="service__item display-flex flex-collum flex-justify-content-center align-center">
         <div>
           <img src="image/sevice__track.png" alt="" />

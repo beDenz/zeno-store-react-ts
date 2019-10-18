@@ -11,10 +11,11 @@ interface BlogPostPageConfig {
 }
 
 const BlogPostPage: React.FC<BlogPostPageConfig> = ({ item }): JSX.Element => {
-  //TODO: реализовать динамическое формирование страницы
+  //страница статична
+  //TODO: реализовать динамическое формирование страницы,
 
   return (
-    <section className="blog container margin-center">
+    <section className="container margin-center">
       <div className="blog-detail container-small margin-center">
         <h1 className="page-title margin-center text-align-center margin-bottom-30">
           Modern & Contemporary Adult Bedroom
@@ -22,7 +23,7 @@ const BlogPostPage: React.FC<BlogPostPageConfig> = ({ item }): JSX.Element => {
         <div className="blog-detail__detail">
           By Laura Green | January 14, 2019 | 8 Comments
         </div>
-        <div className="blog-detail__image top-image margin-center margin-top-30 margin-bottom-30">
+        <div className="blog-detail__image margin-center margin-top-30 margin-bottom-30">
           <img src="/image/blog/1.jpg" alt="" />
         </div>
         <p className="blog-detail__text container-blog margin-center">
@@ -78,7 +79,7 @@ const BlogPostPage: React.FC<BlogPostPageConfig> = ({ item }): JSX.Element => {
           tremendous feeling sink in and encourage you to persist despite all
           odds.
         </p>
-        <div className="blog-detail__footer container-blog margin-center display-flex flex-space-between align-center">
+        <div className="blog-detail__footer container-blog margin-center display-flex flex-space-between align-center margin-top-30">
           <AuthorBlock />
           <div>
             <TagsBlogPage />

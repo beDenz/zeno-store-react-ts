@@ -117,4 +117,8 @@
         transform: translateX(200%);
         visibility: hidden;
     }
+
+    @media all and (max-width: 376px) {
+        display: none;
+    }
 }

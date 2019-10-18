@@ -6,7 +6,7 @@ const Instagram: React.FC = (): ReactElement => {
     <section className="instagram container margin-center margin-top-30">
       <h3 className="instagram__title">Follow Instagram</h3>
       <p className="instagram__nickname">@Zano.Furniture</p>
-      <div className="instagram__images display-flex ">
+      <div className="instagram__images display-flex flex-justify-content-center ">
         <div className="instagram__image">
           <img src="image/instagram/1.jpg" alt="" />
         </div>

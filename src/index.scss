@@ -16,6 +16,10 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   padding: 45px 0;
+
+  @media all and (max-width: 376px) {
+    padding: 10px 0;
+  }
 }
 
 h1,
@@ -61,7 +65,11 @@ select {
     max-width: 1580px;
   }
 
-  @media all and (max-width: 371px) {
+  @media all and (max-width: 1281px) {
+    max-width: 1100px;
+  }
+
+  @media all and (max-width: 376px) {
     max-width: 330px;
   }
 }
@@ -69,16 +77,25 @@ select {
 .container-small {
   max-width: 1170px;
 
-  @media all and (max-width: 371px) {
+  @media all and (max-width: 1281px) {
+    max-width: 1120px;
+  }
+
+  @media all and (max-width: 376px) {
     max-width: 330px;
   }
+
 }
 
 .container-1500 {
   max-width: 1500px;
 
-  @media all and (max-width: 371px) {
+  @media all and (max-width: 376px) {
     max-width: 330px;
+  }
+
+  @media all and (max-width: 1281px) {
+    max-width: 1100px;
   }
 }
 
@@ -143,6 +160,10 @@ select {
 
 .flex-justify-space-around {
   justify-content: space-around;
+}
+
+.flex-justify-content-end {
+  justify-content: flex-end;
 }
 
 .align-center {

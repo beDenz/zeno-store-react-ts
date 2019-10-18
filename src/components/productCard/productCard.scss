@@ -100,7 +100,31 @@
         }
     }
 
+    @media all and (max-width: 376px) {
+        max-width: 330px;
+        flex-direction: column;
 
+        &__images {
+            width: 100%;
+        }
+
+        .image-main {
+            width: 100%;
+            height: auto;
+        }
+
+        .image-small {
+            margin-bottom: 10px;
+        }
+
+        &__button {
+            padding: 18px 15px;
+        }
+
+        &__title {
+            padding-top: 20px;
+        }
+    }
 }
 
 

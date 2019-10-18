@@ -10,7 +10,6 @@
     }
 
     &__row-titles {
-
         padding: 50px 100px 30px 0;
     }
 
@@ -81,6 +80,32 @@
     .width-16 {
         width: 5%;
     }
+
+    @media all and (max-width: 376px) {
+        flex-direction: column;
+
+        &__title:not(:first-child) {
+            display: none;
+        }
+
+        &__row-product {
+            flex-wrap: wrap;
+        }
+
+        &__confirm-row {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__button-confirm {
+            padding: 18px 18px;
+            font-size: 12px;
+        }
+
+        &__product {
+            width: 100% !important;
+        }
+    }
 }
 
 .totalPrice {
@@ -127,6 +152,14 @@
         background-color: #ff6363;
         cursor: pointer;
     }
+
+    @media all and (max-width: 376px) {
+        max-width: 330px;
+
+        &__button {
+            width: auto;
+        }
+    }
 }
 
 .discount {
@@ -161,6 +194,26 @@
         text-transform: uppercase;
         letter-spacing: 2.4px;
         border: none;
+    }
+
+    @media all and (max-width: 376px) {
+        text-align: center;
+        margin-bottom: 25px;
+
+        &__form {
+            flex-direction: column;
+            max-width: 170px;
+            height: auto;
+        }
+
+        &__input {
+            width: 100%;
+            margin: 0 0 10px 0;
+        }
+
+        &__button {
+            padding: 10px 0;
+        }
     }
 }
 

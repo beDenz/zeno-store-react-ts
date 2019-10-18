@@ -37,11 +37,12 @@
         font-family: "Elegant Icon";
         font-size: 20px;
         right: 5px;
-        top: 3px;
+        //top: 3px;
+        top: -3px;
         z-index: -1;
     }
 
-    @media all and (max-width: 371px) {
+    @media all and (max-width: 376px) {
         display: none;
     }
 }

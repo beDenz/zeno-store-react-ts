@@ -18,8 +18,6 @@
         margin-bottom: 30px;
     }
 
-    &__items {}
-
     &__item {
         position: relative;
 
@@ -54,6 +52,12 @@
 
         &:hover .item-icons {
             display: flex;
+        }
+
+        @media all and (max-width: 376px) {
+            &:not(:last-child) {
+                margin-bottom: 38px;
+            }
         }
     }
 
@@ -96,10 +100,14 @@
         }
     }
 
-    @media all and (max-width: 371px) {
+    @media all and (max-width: 376px) {
         &__items {
             flex-direction: column;
             align-items: center;
+        }
+
+        &__description {
+            width: 100%
         }
     }
 }

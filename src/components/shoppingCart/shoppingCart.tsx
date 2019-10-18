@@ -43,7 +43,7 @@ const ShoppingCart: React.FC<ShoppingCartConfig> = ({ match }): JSX.Element => {
 
         <div className="shopingCart__button-confirm">Update Cart</div>
       </div>
-      <div className="display-flex flex-space-between align-flex-end">
+      <div className="shopingCart__confirm-row display-flex flex-space-between align-flex-end">
         <div className="discount">
           <h3 className="discount__title">Discount Codes</h3>
           <form className="discount__form display-flex align-center">
