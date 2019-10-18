@@ -40,4 +40,8 @@
         top: 3px;
         z-index: -1;
     }
+
+    @media all and (max-width: 371px) {
+        display: none;
+    }
 }

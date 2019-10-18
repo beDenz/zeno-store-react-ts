@@ -3,7 +3,7 @@ import "./metroGridItems.scss";
 
 const MetroGridItems: React.FC = (): ReactElement => {
   return (
-    <section className="metroGridItems">
+    <section className="metroGridItems margin-top-30 container margin-center">
       <div className="metroGridItems__item item1">
         {
           //<img src="image/item/photo-1555041469-a586c61ea9bc.jpg" alt="" />

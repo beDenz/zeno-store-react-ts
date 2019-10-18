@@ -28,6 +28,13 @@ p {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  color: #333333;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -49,14 +56,30 @@ select {
 
 .container {
   max-width: 1760px;
+
+  @media all and (max-width: 1680px) {
+    max-width: 1580px;
+  }
+
+  @media all and (max-width: 371px) {
+    max-width: 330px;
+  }
 }
 
 .container-small {
   max-width: 1170px;
+
+  @media all and (max-width: 371px) {
+    max-width: 330px;
+  }
 }
 
 .container-1500 {
   max-width: 1500px;
+
+  @media all and (max-width: 371px) {
+    max-width: 330px;
+  }
 }
 
 .container-blog {
@@ -140,4 +163,32 @@ select {
 
 .elegant-icon {
   font-family: "Elegant Icon";
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.displayNone {
+  display: none;
+}
+
+.margin-bottom-30 {
+  margin-bottom: 30px;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.padding-top-100 {
+  padding-top: 100px;
+}
+
+* {
+  box-sizing: border-box;
 }

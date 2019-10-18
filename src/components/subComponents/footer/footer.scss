@@ -80,4 +80,23 @@
         font-weight: 600;
         line-height: 26px;
     }
+
+
+    @media all and (max-width: 371px) {
+        grid-template-areas:
+            "contact"
+            "company"
+            "links"
+            "newslatter"
+            "copyright"
+            "payment-logo"
+        ;
+        grid-gap: 20px;
+        justify-items: center;
+
+        .company,
+        .links {
+            display: none;
+        }
+    }
 }

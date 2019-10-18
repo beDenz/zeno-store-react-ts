@@ -2,7 +2,7 @@
     width: 320px;
 
     &__title {
-        color: #333333;
+
         font-size: 24px;
         font-weight: 600;
         line-height: 48px;
@@ -22,5 +22,9 @@
         &:hover {
             color: #ff6363;
         }
+    }
+
+    @media all and (max-width: 371px) {
+        display: none;
     }
 }

@@ -17,4 +17,8 @@
         height: 30px;
         padding-left: 10px;
     }
+
+    @media all and (max-width: 371px) {
+        display: none;
+    }
 }

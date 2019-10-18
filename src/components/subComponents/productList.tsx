@@ -26,6 +26,7 @@ const ProductsList: React.FC<ProductsListConfig> = ({
     <div
       className={classnames(
         "featured-products__items",
+        "margin-center",
         {
           "display-flex flex-space-between flex-wrap": styleViewState === "grid"
         },

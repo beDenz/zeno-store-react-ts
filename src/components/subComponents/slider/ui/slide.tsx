@@ -1,10 +1,6 @@
 import React, { useContext } from "react";
 import classnames from "classnames";
-import {
-  sliderContext,
-  SLiderItemConfig,
-  SliderConfigInterface
-} from "../sliderStore";
+import { sliderContext, SLiderItemConfig } from "../sliderStore";
 
 declare module "react" {
   interface HTMLAttributes<T> {

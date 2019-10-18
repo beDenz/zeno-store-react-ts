@@ -13,7 +13,7 @@ interface ContactConfig {
 const Contact: React.FC<ContactConfig> = ({ match }): ReactElement => {
   return (
     <Fragment>
-      <div className="text-align-center">
+      <div className=" padding-top-100 text-align-center">
         <Pagetitle title={createTitle(match.url)} />
         <Breadcrumb title={createBreadcrumb(match.url)} />
       </div>
