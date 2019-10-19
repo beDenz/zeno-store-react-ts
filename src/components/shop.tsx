@@ -1,24 +1,23 @@
-import React, { ReactElement, useState, useContext, useCallback } from "react";
+import React, { ReactElement, useState, useContext } from "react";
 import Pagetitle from "./UI/pageTitle/pagetitle";
 import ShopFilterResult from "./UI/shopFilterResult/shopFilterResult";
 import SortBy from "./UI/sortBy/sortBy";
 import StyleViewItems from "./UI/styleViewItems/styleViewItems";
 import TagsList from "./UI/tagsList/tagsList";
-import { productsList, ProductItemsConfig } from "../api/api";
 import PriceFilter from "./UI/priceFilter/priceFilter";
 import ProductCard from "./productCard/productCard";
 import { ResultFilterContext } from "../service/filterresult";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useLocation,
-  useRouteMatch
-} from "react-router-dom";
 import ProductsList from "./subComponents/productList";
 import Breadcrumb from "./UI/breadcrumb/breadcrumb";
+import {
+  ProductsListContext,
+  ProductItemsConfig
+} from "../service/dataBaseState";
+import {
+  createBreadcrumb,
+  createTitle,
+  funcSortProps
+} from "../utilities/utilities";
 
 interface ShopConfig {
   match: any; // TODO: установить тип
@@ -32,13 +31,14 @@ interface ShopFilterConfig {
 
 declare global {
   interface Array<T> {
+    // разширение интерфейса для функиции
     setNumberOfProducts(this: T[]): Array<T>;
   }
 }
 
 const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
-  //const ResultFilterState = useContext(ResultFilterContext);
   const ResultFilterState = useContext(ResultFilterContext);
+
   const [shopFilter, SetShopFilter] = useState<ShopFilterConfig>({
     minPrice: 1,
     maxPrice: 10000,
@@ -48,9 +48,9 @@ const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
   const [styleViewState, setStyleViewState] = useState<string | null>("grid"); // вид сетки
   const [typeOfSortItems, setTypeOfSortItems] = useState<string | undefined>(
     "default"
-  ); // вид сортировок
-  //const [filterResult, setFilterResult] = useState<number>(0); // количество товаров после сортировок
+  ); // сортировка по цене
 
+  const { productListState } = useContext(ProductsListContext);
   /// обработка фильтра по цене
   const onChangePrice = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (!e.target.value.match(/[^0-9]/gi)) {
@@ -86,29 +86,14 @@ const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
   ): void => {
     setTypeOfSortItems(option.currentTarget.value);
   };
-  /// функция возвращает параметры для сортировки
-  const funcSortProps = (type: string | undefined) => (
-    a: ProductItemsConfig,
-    b: ProductItemsConfig
-  ): any => {
-    switch (type) {
-      case "default":
-        return 0;
-      case "priceMinToHigh":
-        return a.price === b.price ? 0 : a.price > b.price ? 1 : -1;
-      case "priceHighToMin":
-        return a.price === b.price ? 0 : a.price < b.price ? 1 : -1;
-    }
-  };
+
   ///////////////////////////////////////////////////////
-  // определяем количество товаров после сортировок
 
   function setNumberOfProducts(
     this: ProductItemsConfig[]
   ): ProductItemsConfig[] {
     // определяем количество товаров после сортировок
     let arr: ProductItemsConfig[] = this;
-    //setFilterResult(arr.length);
     ResultFilterState.dispatch({ type: "add", payload: arr.length });
     return arr;
   }
@@ -116,27 +101,8 @@ const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
   Array.prototype.setNumberOfProducts = setNumberOfProducts;
   //////////////////////////////////////////////////////////////////
 
-  // функиция создания заголовков
-  const createTitle = useCallback((url: string): string[] => {
-    return url
-      .split(/\//)
-      .filter((item: string) => (item || item !== "" ? item : null));
-  }, []);
-  // функция создания пути(хлебных крошек)
-  const createBreadcrumb = (url: string): string[] => {
-    const home: string[] = ["home"];
-    const temp: string[] = url
-      .split(/\//)
-      .filter((item: string) => (item || item !== "" ? item : null));
-    return home.concat(temp);
-  };
   console.log(`!!!!!!!!!!!!`);
   console.log(`Render Shop`);
-
-  console.log(shopFilter);
-  console.log(styleViewState);
-  console.log(typeOfSortItems);
-  console.log(ResultFilterState.state);
 
   return (
     <section className="shop container-1500 display-flex margin-center">
@@ -171,7 +137,7 @@ const Shop: React.FC<ShopConfig> = ({ match }): ReactElement => {
           />
         ) : (
           <ProductCard
-            itemDetail={getProductDetail(productsList, match.params.id)}
+            itemDetail={getProductDetail(productListState, match.params.id)}
           />
         )}
       </div>

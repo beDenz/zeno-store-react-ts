@@ -12,7 +12,7 @@ const BlogItem: React.FC<BlogItemConfig> = ({ item }): JSX.Element => {
       <div className="blog__item margin-bottom-30">
         <img
           className="blog__item-image"
-          src={`/image/blog/${item.path}.jpg`}
+          src={`image/blog/${item.path}.jpg`}
           alt=""
         />
         <div className="blog__item-description">

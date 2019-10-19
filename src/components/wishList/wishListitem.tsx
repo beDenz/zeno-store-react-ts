@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ProductItemsConfig } from "../../api/api";
+import { ProductItemsConfig } from "../../service/dataBaseState";
 import { Link } from "react-router-dom";
 import { WishListItemContext } from "../../service/wishlist";
 import { ShoppingCartContext } from "../../service/cart";

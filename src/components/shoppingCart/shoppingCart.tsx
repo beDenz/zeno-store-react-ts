@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import "./shoppingCart.scss";
 import ShoppingCartItem from "../subComponents/shoppingcartitem";
-//import { productsList } from "../../api/api";
 import {
   ProductsListContext,
   ProductItemsConfig
@@ -10,7 +9,7 @@ import { ShoppingCartContext } from "../../service/cart";
 import { Link } from "react-router-dom";
 import Breadcrumb from "../UI/breadcrumb/breadcrumb";
 import Pagetitle from "../UI/pageTitle/pagetitle";
-import { createBreadcrumb, createTitle } from "../../service/utitiles";
+import { createBreadcrumb, createTitle } from "../../utilities/utilities";
 
 interface ShoppingCartConfig {
   match: any; // TODO: тип?
@@ -18,9 +17,7 @@ interface ShoppingCartConfig {
 
 const ShoppingCart: React.FC<ShoppingCartConfig> = ({ match }): JSX.Element => {
   const shoppingCartState = useContext(ShoppingCartContext);
-  const { productListState, productsListDispatch } = useContext(
-    ProductsListContext
-  );
+  const { productListState } = useContext(ProductsListContext);
   console.log(productListState);
   return (
     <div className="shopingCart container-small margin-center display-flex flex-collum">

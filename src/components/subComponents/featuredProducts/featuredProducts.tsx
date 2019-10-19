@@ -1,9 +1,13 @@
-import React, { ReactElement } from "react";
+import React, { useContext } from "react";
 import "./featuredProducts.scss";
 import ProductItem from "../../UI/productItem/productItem";
-import { productsList } from "../../../api/api";
+import {
+  ProductsListContext,
+  ProductItemsConfig
+} from "../../../service/dataBaseState";
 
-const FeaturedProducts: React.FC = (): ReactElement => {
+const FeaturedProducts: React.FC = (): JSX.Element => {
+  const { productListState } = useContext(ProductsListContext);
   return (
     <section className="featured-products container-small margin-center display-flex flex-collum align-center">
       <h3 className="featured-products__title">Featured Products</h3>
@@ -12,9 +16,11 @@ const FeaturedProducts: React.FC = (): ReactElement => {
         tempor incididunt ut labore et dolore
       </p>
       <div className="featured-products__items display-flex flex-space-between flex-wrap">
-        {productsList.slice(0, 8).map((item, index) => (
-          <ProductItem key={index} productList={item} styleViewState="grid" />
-        ))}
+        {productListState
+          .slice(0, 8)
+          .map((item: ProductItemsConfig, index: number) => (
+            <ProductItem key={index} productList={item} styleViewState="grid" />
+          ))}
       </div>
     </section>
   );

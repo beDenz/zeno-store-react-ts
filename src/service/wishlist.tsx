@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { ProductItemsConfig } from "../api/api";
+import { ProductItemsConfig } from "../service/dataBaseState";
 
 const initialState: ProductItemsConfig[] = [];
 

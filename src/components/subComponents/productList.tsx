@@ -1,5 +1,8 @@
-import React from "react";
-import { productsList, ProductItemsConfig } from "../../api/api";
+import React, { useContext } from "react";
+import {
+  ProductsListContext,
+  ProductItemsConfig
+} from "../../service/dataBaseState";
 import ProductItem from "../UI/productItem/productItem";
 import classnames from "classnames";
 
@@ -22,6 +25,7 @@ const ProductsList: React.FC<ProductsListConfig> = ({
   funcSortProps,
   typeOfSortItems
 }): JSX.Element => {
+  const { productListState } = useContext(ProductsListContext);
   return (
     <div
       className={classnames(
@@ -33,8 +37,8 @@ const ProductsList: React.FC<ProductsListConfig> = ({
         { "flex-collum": styleViewState === "list" }
       )}
     >
-      {productsList
-        .filter(item =>
+      {productListState
+        .filter((item: ProductItemsConfig) =>
           shopFilter.showCategory !== "all"
             ? shopFilter.showCategory
                 .toLowerCase()
@@ -49,12 +53,12 @@ const ProductsList: React.FC<ProductsListConfig> = ({
             : true
         )
         .filter(
-          item =>
+          (item: ProductItemsConfig) =>
             item.price > shopFilter.minPrice && item.price < shopFilter.maxPrice
         )
         .setNumberOfProducts()
         .sort(funcSortProps(typeOfSortItems))
-        .map((item, index) => (
+        .map((item: ProductItemsConfig, index: number) => (
           <ProductItem
             key={index}
             productList={item}

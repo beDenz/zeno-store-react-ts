@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { ProductItemsConfig } from "../../../api/api";
+import { ProductItemsConfig } from "../../../service/dataBaseState";
 import "./productItem.scss";
 import classnames from "classnames";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../../service/cart";
 import { WishListItemContext } from "../../../service/wishlist";
+import { addToCart } from "../../../utilities/utilities";
 
 interface ProductItemConfig {
   productList: ProductItemsConfig;
@@ -113,10 +114,7 @@ const ProductItem: React.FC<ProductItemConfig> = ({
             }
           )}
           onClick={() =>
-            shoppingCartState.dispatch({
-              type: "add",
-              payload: { id: productList.id, price: productList.price }
-            })
+            addToCart(shoppingCartState, productList.id, productList.price)
           }
         >
           Add To Cart
@@ -130,10 +128,7 @@ const ProductItem: React.FC<ProductItemConfig> = ({
             }
           )}
           onClick={() =>
-            WishListItemState.dispatch({
-              type: "add",
-              payload: { id: productList.id, price: productList.price }
-            })
+            addToCart(WishListItemState, productList.id, productList.price)
           }
         >
           &#xe030;

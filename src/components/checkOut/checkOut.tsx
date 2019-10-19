@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import "./checkOut.scss";
-import { productsList, ProductItemsConfig } from "../../api/api";
+import {
+  ProductsListContext,
+  ProductItemsConfig
+} from "../../service/dataBaseState";
+
 import { ShoppingCartContext } from "../../service/cart";
 import { BillingContext } from "../../service/billing";
 
@@ -8,6 +12,7 @@ const CheckOut: React.FC = (): JSX.Element => {
   const shoppingCartState = useContext(ShoppingCartContext);
   const billingState = useContext(BillingContext);
   console.log(billingState.state);
+  const { productListState } = useContext(ProductsListContext);
   return (
     <section className="checkout container-small margin-center display-flex">
       <div className="billing-details">
@@ -173,7 +178,7 @@ const CheckOut: React.FC = (): JSX.Element => {
 
         {shoppingCartState.state.map(
           (itemMap: { id: string; price: number }, index: number) => {
-            const item = productsList.filter(
+            const item = productListState.filter(
               (itemFilter: ProductItemsConfig) => itemFilter.id === itemMap.id
             )[0];
             return (

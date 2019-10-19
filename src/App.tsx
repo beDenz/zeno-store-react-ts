@@ -33,9 +33,7 @@ const App: React.FC = () => {
   };
 
   useEffect(() => productsListApi(), []);
-  console.log("!!!!!");
-  console.log(productsState.productListState);
-  console.log("!!!!!");
+
   return (
     <Router>
       {

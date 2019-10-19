@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classnames from "classnames";
 import "./faqs.scss";
-import { createBreadcrumb, createTitle } from "../../service/utitiles";
+import { createBreadcrumb, createTitle } from "../../utilities/utilities";
 import Breadcrumb from "../UI/breadcrumb/breadcrumb";
 import Pagetitle from "../UI/pageTitle/pagetitle";
 

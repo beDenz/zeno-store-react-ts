@@ -2,10 +2,14 @@ import React, { ReactElement, useContext } from "react";
 import "./wishList.scss";
 import WishListItem from "./wishListitem";
 import { WishListItemContext } from "../../service/wishlist";
-import { productsList, ProductItemsConfig } from "../../api/api";
+
+import {
+  ProductsListContext,
+  ProductItemsConfig
+} from "../../service/dataBaseState";
 import Breadcrumb from "../UI/breadcrumb/breadcrumb";
 import Pagetitle from "../UI/pageTitle/pagetitle";
-import { createBreadcrumb, createTitle } from "../../service/utitiles";
+import { createBreadcrumb, createTitle } from "../../utilities/utilities";
 
 interface WishListConfig {
   match: any;
@@ -13,6 +17,7 @@ interface WishListConfig {
 
 const WishList: React.FC<WishListConfig> = ({ match }): ReactElement => {
   const WishListItemState = useContext(WishListItemContext);
+  const { productListState } = useContext(ProductsListContext);
   return (
     <section className="wishList container-small margin-center">
       <div className="text-align-center">
@@ -26,7 +31,7 @@ const WishList: React.FC<WishListConfig> = ({ match }): ReactElement => {
       </div>
       {WishListItemState.state.map(
         (itemMap: { id: string; price: number }, index: number) => {
-          const temp: ProductItemsConfig = productsList.filter(
+          const temp: ProductItemsConfig = productListState.filter(
             (itemFilter: ProductItemsConfig) => itemFilter.id === itemMap.id
           )[0];
           return <WishListItem key={index} item={temp} />;

@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Breadcrumb from "./UI/breadcrumb/breadcrumb";
 import Pagetitle from "./UI/pageTitle/pagetitle";
-import { blogPost, blogPostConfig } from "../api/api";
-import { createBreadcrumb, createTitle } from "../service/utitiles";
+import { createBreadcrumb, createTitle } from "../utilities/utilities";
 import BlogItem from "./subComponents/blogItem/blogItem";
 import BlogPostPage from "./subComponents/blogPost/blogPost";
+import { blogPostConfig, BlogsListContext } from "../service/blogsList";
 
 interface TitleConfig {
   match: any;
 }
 
 const Blog: React.FC<TitleConfig> = ({ match }): JSX.Element => {
+  const { blogsListState, getBlogsList, blogsListDispatch } = useContext(
+    BlogsListContext
+  );
+
+  const blogsListApi = () => {
+    getBlogsList()
+      .then((res: blogPostConfig[]) =>
+        blogsListDispatch({ type: "add", payload: res })
+      )
+      .catch((res: blogPostConfig[]) => blogsListDispatch({ type: "error" }));
+    //TODO: обработать ошибку соединения с сервером
+  };
+
+  useEffect(() => blogsListApi(), []);
+
   /// функиция возвращет обьект для формирования карточки блога
   const getBlogItem = (array: blogPostConfig[], id: string): blogPostConfig =>
     array.filter((item: blogPostConfig) => item.title === id)[0];
@@ -24,10 +39,10 @@ const Blog: React.FC<TitleConfig> = ({ match }): JSX.Element => {
         </div>
       )}
       {match.params.id ? (
-        <BlogPostPage item={getBlogItem(blogPost, match.params.id)} />
+        <BlogPostPage item={getBlogItem(blogsListState, match.params.id)} />
       ) : (
         <div className="blog__items display-flex flex-space-between flex-wrap ">
-          {blogPost.map((item: blogPostConfig, index: number) => (
+          {blogsListState.map((item: blogPostConfig, index: number) => (
             <BlogItem key={index} item={item} />
           ))}
         </div>

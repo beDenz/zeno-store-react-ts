@@ -5,21 +5,24 @@ import { BillingProvider } from "../service/billing";
 import { ResultFilterProvider } from "../service/filterresult";
 import { ProductsListProvider } from "../service/dataBaseState";
 import App from "../App";
+import { BlogsListProvider } from "../service/blogsList";
 
 const ContextProviderLayout: React.FC = (): JSX.Element => {
   return (
     <ProductsListProvider>
-      <ResultFilterProvider>
-        <ShoppingCartProvider>
-          <WishListItemProvider>
-            <BillingProvider>
-              <ResultFilterProvider>
-                <App />
-              </ResultFilterProvider>
-            </BillingProvider>
-          </WishListItemProvider>
-        </ShoppingCartProvider>
-      </ResultFilterProvider>
+      <BlogsListProvider>
+        <ResultFilterProvider>
+          <ShoppingCartProvider>
+            <WishListItemProvider>
+              <BillingProvider>
+                <ResultFilterProvider>
+                  <App />
+                </ResultFilterProvider>
+              </BillingProvider>
+            </WishListItemProvider>
+          </ShoppingCartProvider>
+        </ResultFilterProvider>
+      </BlogsListProvider>
     </ProductsListProvider>
   );
 };

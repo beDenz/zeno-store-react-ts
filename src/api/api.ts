@@ -1,4 +1,5 @@
-export interface ProductItemsConfig {
+/*
+interface ProductItemsConfig {
   id: string;
   category: string;
   title: string;
@@ -18,7 +19,7 @@ export interface ProductItemsConfig {
   }[];
 }
 
-export const productsList: ProductItemsConfig[] = [
+const productsList: ProductItemsConfig[] = [
   {
     id: "DIME039", //
     category: "furniture",
@@ -855,7 +856,7 @@ export const productsList: ProductItemsConfig[] = [
     ] // массив обектов отзыввов
   }
 ];
-
+*/
 export interface blogPostConfig {
   authorName: string;
   path: string;

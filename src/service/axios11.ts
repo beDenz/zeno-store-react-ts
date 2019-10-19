@@ -19,16 +19,17 @@ const setData = async () => {
   //console.log([data.data);
 };
 
-//const setDataInstall = async () => {
-//productList.map(item => await axios.post(`${url}/productList.json`, item));
-//};
 
+
+/////////////////////
+  const url: string = process.env.REACT_APP_URL_DB as string;
 
   const setDataInstall = async (item: any) => {
-    await axios.post(`${url}/productList.json`, item);
+    await axios.post(`${url}/blogsList.json`, item);
   };
 
-
+  blogPost.map((item: any) => setDataInstall(item));
+////////////////////////
 //getData();
 //setData();
 */

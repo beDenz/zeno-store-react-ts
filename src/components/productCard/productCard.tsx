@@ -1,9 +1,10 @@
-import React, { ReactElement, Fragment, useState, useContext } from "react";
+import React, { Fragment, useState, useContext } from "react";
 import "./productCard.scss";
 import Pagetitle from "../UI/pageTitle/pagetitle";
-import { ProductItemsConfig } from "../../api/api";
+import { ProductItemsConfig } from "../../service/dataBaseState";
 import { ShoppingCartContext } from "../../service/cart";
 import { WishListItemContext } from "../../service/wishlist";
+import { addToCart } from "../../utilities/utilities";
 
 interface ProductCardConfig {
   itemDetail: ProductItemsConfig;
@@ -11,10 +12,11 @@ interface ProductCardConfig {
 
 const ProductCard: React.FC<ProductCardConfig> = ({
   itemDetail
-}): ReactElement => {
+}): JSX.Element => {
   const [mainImage, setMainImage] = useState<string>(`${itemDetail.id}_1`);
   const shoppingCartState = useContext(ShoppingCartContext);
   const WishListItemState = useContext(WishListItemContext);
+
   return (
     <Fragment>
       <Pagetitle />
@@ -71,10 +73,7 @@ const ProductCard: React.FC<ProductCardConfig> = ({
             <div
               className="productCard__button display-flex flex-justify-content-center align-center"
               onClick={() =>
-                shoppingCartState.dispatch({
-                  type: "add",
-                  payload: { id: itemDetail.id, price: itemDetail.price }
-                })
+                addToCart(shoppingCartState, itemDetail.id, itemDetail.price)
               }
             >
               Add To Cart
@@ -82,10 +81,7 @@ const ProductCard: React.FC<ProductCardConfig> = ({
             <div
               className="wishList-button display-flex flex-justify-content-center align-center elegant-icon"
               onClick={() =>
-                WishListItemState.dispatch({
-                  type: "add",
-                  payload: { id: itemDetail.id, price: itemDetail.price }
-                })
+                addToCart(WishListItemState, itemDetail.id, itemDetail.price)
               }
             >
               &#xe030;
