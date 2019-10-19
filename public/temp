@@ -1,0 +1,23 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCbnAgppZAhXBgaYUNr1AQ_mbbUCRcGlss",
+        authDomain: "zeno-store-react-ts.firebaseapp.com",
+        databaseURL: "https://zeno-store-react-ts.firebaseio.com",
+        projectId: "zeno-store-react-ts",
+        storageBucket: "zeno-store-react-ts.appspot.com",
+        messagingSenderId: "665596751898",
+        appId: "1:665596751898:web:cca7d0d5f9169fc26021a3",
+        measurementId: "G-4CEG36XHCH"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>

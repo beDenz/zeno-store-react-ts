@@ -14,7 +14,7 @@ const FeaturedProducts: React.FC = (): ReactElement => {
       <div className="featured-products__items display-flex flex-space-between flex-wrap">
         {productsList.slice(0, 8).map((item, index) => (
           <ProductItem key={index} productList={item} styleViewState="grid" />
-        ))} 
+        ))}
       </div>
     </section>
   );

@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
 import "./shoppingCart.scss";
 import ShoppingCartItem from "../subComponents/shoppingcartitem";
-import { productsList, ProductItemsConfig } from "../../api/api";
+//import { productsList } from "../../api/api";
+import {
+  ProductsListContext,
+  ProductItemsConfig
+} from "../../service/dataBaseState";
 import { ShoppingCartContext } from "../../service/cart";
 import { Link } from "react-router-dom";
 import Breadcrumb from "../UI/breadcrumb/breadcrumb";
@@ -9,11 +13,15 @@ import Pagetitle from "../UI/pageTitle/pagetitle";
 import { createBreadcrumb, createTitle } from "../../service/utitiles";
 
 interface ShoppingCartConfig {
-  match: any;
+  match: any; // TODO: тип?
 }
 
 const ShoppingCart: React.FC<ShoppingCartConfig> = ({ match }): JSX.Element => {
   const shoppingCartState = useContext(ShoppingCartContext);
+  const { productListState, productsListDispatch } = useContext(
+    ProductsListContext
+  );
+  console.log(productListState);
   return (
     <div className="shopingCart container-small margin-center display-flex flex-collum">
       <div className="text-align-center">
@@ -29,7 +37,7 @@ const ShoppingCart: React.FC<ShoppingCartConfig> = ({ match }): JSX.Element => {
 
       {shoppingCartState.state.map(
         (itemMap: { id: string; price: number }, index: number) => {
-          const temp = productsList.filter(
+          const temp = productListState.filter(
             (itemFilter: ProductItemsConfig) => itemFilter.id === itemMap.id
           );
           return <ShoppingCartItem key={index} item={temp[0]} />;
