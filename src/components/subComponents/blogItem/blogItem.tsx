@@ -1,5 +1,5 @@
 import React from "react";
-import { blogPostConfig } from "../../../api/api";
+import { blogPostConfig } from "../../../service/blogsList";
 import { Link } from "react-router-dom";
 
 interface BlogItemConfig {
