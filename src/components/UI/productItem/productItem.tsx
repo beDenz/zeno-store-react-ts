@@ -47,10 +47,7 @@ const ProductItem: React.FC<ProductItemConfig> = ({
               { productItemList__icon: styleViewState === "list" }
             )}
             onClick={() =>
-              WishListItemState.dispatch({
-                type: "add",
-                payload: { id: productList.id, price: productList.price }
-              })
+              addToCart(WishListItemState, productList.id, productList.price)
             }
           >
             &#xe030;
@@ -61,10 +58,7 @@ const ProductItem: React.FC<ProductItemConfig> = ({
               { productItemList__icon: styleViewState === "list" }
             )}
             onClick={() =>
-              shoppingCartState.dispatch({
-                type: "add",
-                payload: { id: productList.id, price: productList.price }
-              })
+              addToCart(shoppingCartState, productList.id, productList.price)
             }
           >
             &#xe013;

@@ -3,6 +3,7 @@ import { ProductItemsConfig } from "../../service/dataBaseState";
 import { Link } from "react-router-dom";
 import { WishListItemContext } from "../../service/wishlist";
 import { ShoppingCartContext } from "../../service/cart";
+import { addToCart } from "../../utilities/utilities";
 
 interface WishListItemConfig {
   item: ProductItemsConfig;
@@ -29,12 +30,7 @@ const WishListItem: React.FC<WishListItemConfig> = ({ item }): JSX.Element => {
       <span className="wishList__stock">Instock</span>
       <div
         className="wishList__button-confirm"
-        onClick={() =>
-          shoppingCartState.dispatch({
-            type: "add",
-            payload: { id: item.id, price: item.price }
-          })
-        }
+        onClick={() => addToCart(shoppingCartState, item.id, item.price)}
       >
         Add To Card
       </div>

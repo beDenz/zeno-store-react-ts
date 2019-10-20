@@ -2,10 +2,15 @@ import { ProductItemsConfig } from "../service/dataBaseState";
 
 // функция добавления обьекта в карзину либой wishlist
 export const addToCart = (state: any, id: string, price: number) => {
-  state.dispatch({
-    type: "add",
-    payload: { id, price }
-  });
+  // TODO: реализовать изменение количества если обьект уже есть в карточке
+  if (
+    !state.state.some((item: { id: string; price: number }) => item.id === id)
+  ) {
+    state.dispatch({
+      type: "add",
+      payload: { id, price, count: 1 }
+    });
+  }
 };
 
 // функция создания пути(хлебных крошек)

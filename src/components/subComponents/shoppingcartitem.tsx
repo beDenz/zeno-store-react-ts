@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../service/cart";
+import Count from "../UI/count/count";
 
 interface ShoppingCartItemConfig {
   item?: any;
@@ -10,6 +11,12 @@ const ShoppingCartItem: React.FC<ShoppingCartItemConfig> = ({
   item
 }): JSX.Element => {
   const shoppingCartState = useContext(ShoppingCartContext);
+
+  let count: number = shoppingCartState.state.filter(
+    (stateItem: { id: string; price: number; count: number }) =>
+      stateItem.id === item.id
+  )[0].count;
+
   return (
     <div className="shopingCart__row-product display-flex align-center flex-space-between row-border">
       <div className="shopingCart__product display-flex align-center width-50">
@@ -26,17 +33,11 @@ const ShoppingCartItem: React.FC<ShoppingCartItemConfig> = ({
 
       <span className="shopingCart__price">${item.price}</span>
 
-      <div className="count display-flex flex-space-between align-center">
-        <div className="count__operator display-flex align-center flex-justify-content-center">
-          -
-        </div>
-        <div className="count__value">1</div>
-        <div className="count__operator display-flex align-center flex-justify-content-center">
-          +
-        </div>
-      </div>
+      <Count id={item.id} />
 
-      <span className="shopingCart__price">${item.price}</span>
+      <span className="shopingCart__price">
+        $ {(count * item.price).toFixed(2)}
+      </span>
       <span
         className="shopingCart__button elegant-icon"
         onClick={() =>

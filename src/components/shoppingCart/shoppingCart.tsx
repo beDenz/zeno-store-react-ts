@@ -18,7 +18,7 @@ interface ShoppingCartConfig {
 const ShoppingCart: React.FC<ShoppingCartConfig> = ({ match }): JSX.Element => {
   const shoppingCartState = useContext(ShoppingCartContext);
   const { productListState } = useContext(ProductsListContext);
-  console.log(productListState);
+
   return (
     <div className="shopingCart container-small margin-center display-flex flex-collum">
       <div className="text-align-center">
@@ -70,8 +70,11 @@ const ShoppingCart: React.FC<ShoppingCartConfig> = ({ match }): JSX.Element => {
                 ? "$" +
                   shoppingCartState.state
                     .reduce(
-                      (acc: number, value: { id: string; price: number }) => {
-                        return acc + value.price;
+                      (
+                        acc: number,
+                        value: { id: string; price: number; count: number }
+                      ) => {
+                        return acc + value.price * value.count;
                       },
                       0
                     )
