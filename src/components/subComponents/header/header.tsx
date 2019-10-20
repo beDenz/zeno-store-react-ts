@@ -94,8 +94,11 @@ const Header: React.FC = (): ReactElement => {
                   ? "$" +
                     shoppingCartState.state
                       .reduce(
-                        (acc: number, value: { id: string; price: number }) => {
-                          return acc + value.price;
+                        (
+                          acc: number,
+                          value: { id: string; price: number; count: number }
+                        ) => {
+                          return acc + value.price * value.count;
                         },
                         0
                       )

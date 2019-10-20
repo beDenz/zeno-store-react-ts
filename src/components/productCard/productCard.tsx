@@ -14,6 +14,7 @@ const ProductCard: React.FC<ProductCardConfig> = ({
   itemDetail
 }): JSX.Element => {
   const [mainImage, setMainImage] = useState<string>(`${itemDetail.id}_1`);
+  const [count, setCount] = useState<number>(1);
   const shoppingCartState = useContext(ShoppingCartContext);
   const WishListItemState = useContext(WishListItemContext);
 
@@ -62,18 +63,31 @@ const ProductCard: React.FC<ProductCardConfig> = ({
           <p className="productCard__text">{itemDetail.description}</p>
           <div className="display-flex">
             <div className="count display-flex flex-space-between align-center">
-              <div className="count__operator display-flex align-center flex-justify-content-center">
+              <div
+                className="count__operator display-flex align-center flex-justify-content-center"
+                onClick={() => (count > 0 ? setCount(count - 1) : null)}
+              >
                 -
               </div>
-              <div className="count__value">1</div>
-              <div className="count__operator display-flex align-center flex-justify-content-center">
+              <div className="count__value">{count}</div>
+              <div
+                className="count__operator display-flex align-center flex-justify-content-center"
+                onClick={() => setCount(count + 1)}
+              >
                 +
               </div>
             </div>
             <div
               className="productCard__button display-flex flex-justify-content-center align-center"
               onClick={() =>
-                addToCart(shoppingCartState, itemDetail.id, itemDetail.price)
+                count > 0
+                  ? addToCart(
+                      shoppingCartState,
+                      itemDetail.id,
+                      itemDetail.price,
+                      count
+                    )
+                  : null
               }
             >
               Add To Cart

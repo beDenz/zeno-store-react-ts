@@ -18,7 +18,7 @@ interface ShoppingCartConfig {
 const ShoppingCart: React.FC<ShoppingCartConfig> = ({ match }): JSX.Element => {
   const shoppingCartState = useContext(ShoppingCartContext);
   const { productListState } = useContext(ProductsListContext);
-
+  console.log(shoppingCartState.state);
   return (
     <div className="shopingCart container-small margin-center display-flex flex-collum">
       <div className="text-align-center">
